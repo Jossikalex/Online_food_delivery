@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Admins - Admin Panel</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Sidebar Navigation -->
+    <div class="admin-sidebar">
+        <div class="sidebar-header">
+            <img src="../images/logo.png" alt="Logo">
+            <h3>Ella Kitchen Cafe</h3>
+            <p>Admin Panel</p>
+        </div>
+        
+        <nav class="sidebar-menu">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="update-menu.html">Update menu</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li class="active"><a href="users.html">Users</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="view-site.html">View site</a></li>
+                <li><a href="Logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="admin-main">
+        <header class="admin-header">
+            <h1>Manage users</h1>
+            <div class="admin-user">
+                <span>Welcome, Admin</span>
+            </div>
+        </header>
+        
+
+
+
+
+
+<div class="register-container">
+
+    <!-- LEFT: Admin Form -->
+    <div class="register-box">
+        <h2>Register Admin</h2>
+
+         <form class="form-container">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="admin-name">Full Name</label>
+                            <input type="text" id="admin-name" placeholder="Enter full name" required><br><br>
+                            <label for="admin-username">Username</label>
+                            <input type="text" id="admin-username" placeholder="Choose username" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="admin-email">Email Address</label>
+                            <input type="email" id="admin-email" placeholder="jossikalex@gmail.com" required><br><br>
+                            <label for="admin-phone">Phone Number</label>
+                            <input type="tel" id="admin-phone" placeholder="+251 (9) 174-31899">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="admin-password">Password</label>
+                            <input type="password" id="admin-password" placeholder="Create password" required><br><br>
+                            <label for="admin-confirm-password">Confirm Password</label>
+                            <input type="password" id="admin-confirm-password" placeholder="Confirm password" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="admin-role">Role</label>
+                        <select id="admin-role" required>
+                            <option value="waiter">Waiter</option>
+                            <option value="Deliveryperson">Delivery person</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Add to the list</button>
+                    </div>
+                </form>
+
+
+    </div>
+
+    <!-- RIGHT: Delivery Person Form -->
+    <div class="register-box">
+        <h2>Register Delivery Person</h2>
+
+
+         <form class="form-container">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="admin-name">Full Name</label>
+                            <input type="text" id="admin-name" placeholder="Enter full name" required><br><br>
+                            <label for="admin-username">Username</label>
+                            <input type="text" id="admin-username" placeholder="Choose username" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="admin-email">Email Address</label>
+                            <input type="email" id="admin-email" placeholder="jossikalex@gmail.com" required><br><br>
+                            <label for="admin-phone">Phone Number</label>
+                            <input type="tel" id="admin-phone" placeholder="+251 (9) 174-31899">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="admin-password">Password</label>
+                            <input type="password" id="admin-password" placeholder="Create password" required><br><br>
+                            <label for="admin-confirm-password">Confirm Password</label>
+                            <input type="password" id="admin-confirm-password" placeholder="Confirm password" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="admin-role">Role</label>
+                        <select id="admin-role" required>
+                            <option value="waiter">Waiter</option>
+                            <option value="Deliveryperson">Delivery person</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Add to the list</button>
+                    </div>
+                </form>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+        <div class="admin-content">
+            <!-- Add New Admin Form -->
+
+
+
+
+           
+            
+            <!-- Admins List -->
+            <div class="content-section">
+                <h2>All Users</h2>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>    </th>
+                                <th>Last Login</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ADM-001</td>
+                                <td>Fekadu Markos</td>
+                                <td>Fikemark</td>
+                                <td>john@eliakitchen.com</td>
+                                <td><span class="badge badge-danger">Super Admin</span></td>
+                                <td>2024-01-15 14:30</td>
+                                <td><span class="status completed">Active</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Edit</button>
+                                    <button class="btn btn-small btn-danger" disabled>Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ADM-002</td>
+                                <td>Sarah Smith</td>
+                                <td>sarahs</td>
+                                <td>sarah@eliakitchen.com</td>
+                                <td><span class="badge badge-primary">Admin</span></td>
+                                <td>2024-01-15 10:15</td>
+                                <td><span class="status completed">Active</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Edit</button>
+                                    <button class="btn btn-small btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ADM-003</td>
+                                <td>Mike Johnson</td>
+                                <td>mikej</td>
+                                <td>mike@eliakitchen.com</td>
+                                <td><span class="badge badge-success">Editor</span></td>
+                                <td>2024-01-14 16:45</td>
+                                <td><span class="status completed">Active</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Edit</button>
+                                    <button class="btn btn-small btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ADM-004</td>
+                                <td>Emma Wilson</td>
+                                <td>emmaw</td>
+                                <td>emma@eliakitchen.com</td>
+                                <td><span class="badge badge-info">Viewer</span></td>
+                                <td>2024-01-13 09:20</td>
+                                <td><span class="status pending">Inactive</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Edit</button>
+                                    <button class="btn btn-small btn-success">Activate</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ADM-005</td>
+                                <td>David Brown</td>
+                                <td>davidb</td>
+                                <td>david@eliakitchen.com</td>
+                                <td><span class="badge badge-warning">Moderator</span></td>
+                                <td>2024-01-12 11:30</td>
+                                <td><span class="status completed">Active</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Edit</button>
+                                    <button class="btn btn-small btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
