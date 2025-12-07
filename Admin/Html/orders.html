@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders - Admin Panel</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Sidebar Navigation -->
+    <div class="admin-sidebar">
+        <div class="sidebar-header">
+            <img src="../images/logo.png" alt="Logo">
+            <h3>Ella Kitchen Cafe</h3>
+            <p>Admin Panel</p>
+        </div>
+        
+        <nav class="sidebar-menu">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="update-menu.html">Update menu</a></li>
+                <li class="active"><a href="orders.html">Orders</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="view-site.html">View site</a></li>
+                <li><a href="Logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="admin-main">
+        <header class="admin-header">
+            <h1>Manage Orders</h1>
+            <div class="admin-user">
+                <span>Welcome, Admin</span>
+            </div>
+        </header>
+        
+        <div class="admin-content">
+            <!-- Order Filters -->
+            <div class="content-section">
+                <div class="filter-section">
+                    <h2>Order Management</h2>
+                    <div class="filter-controls">
+                        <select class="filter-select">
+                            <option value="all">All Orders</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <input type="date" class="filter-date">
+                        <button class="btn btn-primary">Filter</button>
+                        <button class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+                
+                <!-- Orders Table -->
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Order Date</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD-1001</td>
+                                <td>John Smith<br><small>john@email.com</small></td>
+                                <td>2024-01-15<br><small>14:30</small></td>
+                                <td>
+                                    <ul class="order-items">
+                                        <li>Margherita Pizza (x1)</li>
+                                        <li>Coca Cola (x2)</li>
+                                    </ul>
+                                </td>
+                                <td>$24.48</td>
+                                <td>
+                                    <select class="status-select" data-order="1001">
+                                        <option value="pending">Pending</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="completed" selected>Completed</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-small btn-primary" onclick="viewOrderDetails(1001)">View</button>
+                                    <button class="btn btn-small btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-1002</td>
+                                <td>Sarah Johnson<br><small>sarah@email.com</small></td>
+                                <td>2024-01-15<br><small>12:15</small></td>
+                                <td>
+                                    <ul class="order-items">
+                                        <li>Smoky Burger (x2)</li>
+                                        <li>French Fries (x1)</li>
+                                    </ul>
+                                </td>
+                                <td>$18.97</td>
+                                <td>
+                                    <select class="status-select" data-order="1002">
+                                        <option value="pending">Pending</option>
+                                        <option value="processing" selected>Processing</option>
+                                        <option value="completed">Completed</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">View</button>
+                                    <button class="btn btn-small btn-success" onclick="updateStatus(1002, 'completed')">Complete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-1003</td>
+                                <td>Mike Wilson<br><small>mike@email.com</small></td>
+                                <td>2024-01-14<br><small>19:45</small></td>
+                                <td>
+                                    <ul class="order-items">
+                                        <li>Chicken Momo (x3)</li>
+                                        <li>Garlic Bread (x1)</li>
+                                    </ul>
+                                </td>
+                                <td>$22.50</td>
+                                <td>
+                                    <select class="status-select" data-order="1003">
+                                        <option value="pending" selected>Pending</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="completed">Completed</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">View</button>
+                                    <button class="btn btn-small btn-success" onclick="updateStatus(1003, 'processing')">Process</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-1004</td>
+                                <td>Emma Davis<br><small>emma@email.com</small></td>
+                                <td>2024-01-14<br><small>11:20</small></td>
+                                <td>
+                                    <ul class="order-items">
+                                        <li>Pepperoni Pizza (x1)</li>
+                                        <li>Chocolate Cake (x1)</li>
+                                        <li>Orange Juice (x2)</li>
+                                    </ul>
+                                </td>
+                                <td>$31.47</td>
+                                <td>
+                                    <select class="status-select" data-order="1004">
+                                        <option value="pending">Pending</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="completed">Completed</option>
+                                        <option value="cancelled" selected>Cancelled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">View</button>
+                                    <button class="btn btn-small btn-secondary">Restore</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-1005</td>
+                                <td>Robert Brown<br><small>robert@email.com</small></td>
+                                <td>2024-01-13<br><small>16:10</small></td>
+                                <td>
+                                    <ul class="order-items">
+                                        <li>Veggie Burger (x1)</li>
+                                        <li>Onion Rings (x1)</li>
+                                        <li>Lemonade (x1)</li>
+                                    </ul>
+                                </td>
+                                <td>$15.99</td>
+                                <td>
+                                    <select class="status-select" data-order="1005">
+                                        <option value="pending">Pending</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="completed" selected>Completed</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">View</button>
+                                    <button class="btn btn-small btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-card">
+                        <h4>Today's Orders</h4>
+                        <p class="summary-number">12</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Pending</h4>
+                        <p class="summary-number">3</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Processing</h4>
+                        <p class="summary-number">5</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Today's Revenue</h4>
+                        <p class="summary-number">$245.80</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function viewOrderDetails(orderId) {
+            alert('Viewing details for Order #' + orderId);
+            // In real implementation, this would open a modal or redirect
+        }
+        
+        function updateStatus(orderId, status) {
+            if (confirm('Update order #' + orderId + ' to ' + status + '?')) {
+                alert('Order status updated successfully!');
+                // In real implementation, this would make an AJAX call
+            }
+        }
+        
+        // Update status when select changes
+        document.querySelectorAll('.status-select').forEach(select => {
+            select.addEventListener('change', function() {
+                const orderId = this.getAttribute('data-order');
+                const newStatus = this.value;
+                updateStatus(orderId, newStatus);
+            });
+        });
+    </script>
+</body>
+</html>
