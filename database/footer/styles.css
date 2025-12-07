@@ -1,0 +1,187 @@
+/* Basic Reset and Global Styles (Optional but recommended) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Use a standard sans-serif font like Arial or Helvetica */
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8; /* Example background for the rest of the page */
+}
+
+/* Footer Container Styling */
+.deliveraddis-footer {
+    background-color: #c93231; /* Deep red color from the image */
+    color: #ffffff; /* White text */
+    padding: 50px 0; /* Vertical padding */
+}
+
+/* Inner wrapper to contain and center the content */
+.footer-content-wrapper {
+    max-width: 1200px; /* Max width of the content area */
+    margin: 0 auto; /* Center the wrapper */
+    padding: 0 20px; /* Horizontal padding for smaller screens */
+    display: flex;
+    justify-content: space-between;
+    gap: 30px; /* Space between columns */
+    flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+}
+
+/* Styling for all columns */
+.footer-column {
+    flex-basis: calc(25% - 25px); /* Approximately 25% for a 4-column layout */
+    min-width: 250px; /* Ensure columns have a minimum size before stacking */
+}
+
+/* Headings */
+.footer-column h2,
+.footer-column h3 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-column h2 {
+    font-size: 28px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    /* This makes the titles in columns 2, 3, and 4 align well */
+    border-bottom: 1px solid transparent; 
+}
+
+/* Paragraph Text */
+.footer-column p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.9); /* Slightly muted white for body text */
+}
+
+/* --- Column 1: Logo Section --- */
+
+.questions-section p {
+    margin-bottom: 40px; /* More space before the logo */
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* The logo text structure (ROADRUNNER stacked) */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    font-size: 14px;
+}
+
+.logo-text strong {
+    font-size: 20px; /* Larger for ROADRUNNER */
+    font-weight: 900;
+}
+
+.logo-icon {
+    /* Assuming a placeholder image for the white logo 'R' shape */
+    /* If you don't have an image, you can use a pure CSS shape or icon */
+    width: 25px; 
+    height: 35px;
+    background-color: white; /* Placeholder style */
+    display: block;
+    margin-right: 5px;
+}
+
+
+/* --- Button Styling (Columns 2 and 3) --- */
+
+.footer-button {
+    display: block; /* Make the button full width of the column */
+    text-align: center;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Button 1: Read the FAQs (Red Background) */
+.filled-button {
+    background-color: #c93231; /* Same as footer background */
+    color: #ffffff;
+    border: 1px solid #ffffff; /* White border as seen in the image */
+}
+
+.filled-button:hover {
+    background-color: #b02d2d; /* Slightly darker on hover */
+}
+
+/* Button 2: Learn more (Outline Border) */
+.outline-button {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.outline-button:hover {
+    background-color: #ffffff;
+    color: #c93231; /* Text color changes to red on hover */
+}
+
+/* --- Column 4: Contact & Social --- */
+
+.contact-info {
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.contact-item i {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.social-text {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 20px;
+    margin-right: 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: rgba(255, 255, 255, 0.7); /* Slightly fade on hover */
+}
+
+/* --- Basic Responsiveness (Optional) --- */
+@media (max-width: 1024px) {
+    .footer-column {
+        flex-basis: calc(50% - 15px); /* Stack to two columns on tablets */
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-column {
+        flex-basis: 100%; /* Stack to a single column on mobile */
+        min-width: unset;
+    }
+    .footer-content-wrapper {
+        gap: 0;
+    }
+}
