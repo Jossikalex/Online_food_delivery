@@ -1,3 +1,4 @@
+
 /* admin.css - Admin Panel Styles */
 .admin-login {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -29,6 +30,10 @@
     width: 80px;
     height: 80px;
     margin-bottom: 15px;
+}
+
+.h1{
+    color: white;
 }
 
 .logo-admin h1 {
@@ -66,6 +71,101 @@
     margin-top: 20px;
 }
 
+/* Button Styles */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #f6b11a;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #e0a116;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #218838;
+}
+
+.btn-small {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}
+
+
+/* Add to style.css */
+.btn {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Loading state */
+.btn.loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn.loading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
 .login-footer {
     text-align: center;
     margin-top: 20px;
@@ -87,7 +187,7 @@
 
 .admin-sidebar {
     width: 250px;
-    background: #1e2833;
+    background: linear-gradient(to bottom, #142130,#432c26, #694a01);
     color: white;
 }
 
@@ -142,8 +242,13 @@
     overflow-x: hidden;
 }
 
+.message-icon{
+    display:inline-block;
+    filter: brightness() invert(1);
+}
+
 .admin-header {
-    background: white;
+    background:#f6b11a;
     padding: 20px 30px;
     display: flex;
     justify-content: space-between;
@@ -158,6 +263,7 @@
 
 .admin-content {
     padding: 30px;
+    background: #ECECEC;
 }
 
 .stats-grid {
@@ -217,6 +323,13 @@
     color: #2f3542;
 }
 
+.table-img{
+    padding: 5px 5px;
+     width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
 .admin-table tr:hover {
     background: #f8f9fa;
 }
@@ -241,21 +354,6 @@
 .status.cancelled {
     background: #f8d7da;
     color: #721c24;
-}
-
-.btn-small {
-    padding: 5px 10px;
-    font-size: 0.8rem;
-    margin-right: 5px;
-}
-
-.btn-success {
-    background: #28a745;
-    color: white;
-}
-
-.btn-success:hover {
-    background: #218838;
 }
 
 /* Form Styles for Admin */

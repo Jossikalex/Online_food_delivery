@@ -3,9 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Admins - Admin Panel</title>
+    <title>Manage Users - Admin Panel</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/admin.css">
+    <style>
+        /* Ensure sidebar doesn't interfere with main content */
+        .admin-main {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .admin-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Ensure search bar looks good */
+        .search-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .search-section .form-row {
+            display: flex;
+            gap: 15px;
+            align-items: flex-end;
+        }
+        
+        .search-section .form-group {
+            flex: 1;
+        }
+        
+        .search-section input,
+        .search-section select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+        }
+        
+        .pagination button {
+            margin: 0 5px;
+        }
+    </style>
 </head>
 <body class="admin-dashboard">
     <!-- Sidebar Navigation -->
@@ -22,8 +71,9 @@
                 <li><a href="update-menu.html">Update menu</a></li>
                 <li><a href="orders.html">Orders</a></li>
                 <li class="active"><a href="users.html">Users</a></li>
+                <li><a href="Registration.html">Registration</a></li>
                 <li><a href="report.html">Report</a></li>
-                <li><a href="view-site.html">View site</a></li>
+                <li><a href="../../Customer/Categories.html">View site</a></li>
                 <li><a href="Logout.html">Logout</a></li>
             </ul>
         </nav>
@@ -32,134 +82,37 @@
     <!-- Main Content -->
     <div class="admin-main">
         <header class="admin-header">
-            <h1>Manage users</h1>
+            <h1>Manage Users</h1>
             <div class="admin-user">
                 <span>Welcome, Admin</span>
             </div>
         </header>
         
-
-
-
-
-
-<div class="register-container">
-
-    <!-- LEFT: Admin Form -->
-    <div class="register-box">
-        <h2>Register Admin</h2>
-
-         <form class="form-container">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="admin-name">Full Name</label>
-                            <input type="text" id="admin-name" placeholder="Enter full name" required><br><br>
-                            <label for="admin-username">Username</label>
-                            <input type="text" id="admin-username" placeholder="Choose username" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="admin-email">Email Address</label>
-                            <input type="email" id="admin-email" placeholder="jossikalex@gmail.com" required><br><br>
-                            <label for="admin-phone">Phone Number</label>
-                            <input type="tel" id="admin-phone" placeholder="+251 (9) 174-31899">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="admin-password">Password</label>
-                            <input type="password" id="admin-password" placeholder="Create password" required><br><br>
-                            <label for="admin-confirm-password">Confirm Password</label>
-                            <input type="password" id="admin-confirm-password" placeholder="Confirm password" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="admin-role">Role</label>
-                        <select id="admin-role" required>
-                            <option value="waiter">Waiter</option>
-                            <option value="Deliveryperson">Delivery person</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Add to the list</button>
-                    </div>
-                </form>
-
-
-    </div>
-
-    <!-- RIGHT: Delivery Person Form -->
-    <div class="register-box">
-        <h2>Register Delivery Person</h2>
-
-
-         <form class="form-container">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="admin-name">Full Name</label>
-                            <input type="text" id="admin-name" placeholder="Enter full name" required><br><br>
-                            <label for="admin-username">Username</label>
-                            <input type="text" id="admin-username" placeholder="Choose username" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="admin-email">Email Address</label>
-                            <input type="email" id="admin-email" placeholder="jossikalex@gmail.com" required><br><br>
-                            <label for="admin-phone">Phone Number</label>
-                            <input type="tel" id="admin-phone" placeholder="+251 (9) 174-31899">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="admin-password">Password</label>
-                            <input type="password" id="admin-password" placeholder="Create password" required><br><br>
-                            <label for="admin-confirm-password">Confirm Password</label>
-                            <input type="password" id="admin-confirm-password" placeholder="Confirm password" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="admin-role">Role</label>
-                        <select id="admin-role" required>
-                            <option value="waiter">Waiter</option>
-                            <option value="Deliveryperson">Delivery person</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Add to the list</button>
-                    </div>
-                </form>
-
-
-    </div>
-
-</div>
-
-
-
-
-
-
-
-
         <div class="admin-content">
-            <!-- Add New Admin Form -->
-
-
-
-
-           
+            <!-- Search and Filter -->
+            <div class="search-section">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Search Users</label>
+                        <input type="text" placeholder="Enter name or email...">
+                    </div>
+                    <div class="form-group">
+                        <label>Filter by Role</label>
+                        <select>
+                            <option value="all">All Users</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="admin">Admins</option>
+                            <option value="customer">Customers</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" style="height: 42px;">Search</button>
+                    </div>
+                </div>
+            </div>
             
-            <!-- Admins List -->
+            <!-- Users Table -->
             <div class="content-section">
                 <h2>All Users</h2>
                 <div class="table-responsive">
@@ -168,86 +121,211 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Username</th>
                                 <th>Email</th>
-                                <th>    </th>
-                                <th>Last Login</th>
+                                <th>Role</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>#ADM-001</td>
+                                <td>#USR-001</td>
                                 <td>Fekadu Markos</td>
-                                <td>Fikemark</td>
-                                <td>john@eliakitchen.com</td>
-                                <td><span class="badge badge-danger">Super Admin</span></td>
-                                <td>2024-01-15 14:30</td>
+                                <td>fekadu@example.com</td>
+                                <td>Customer</td>
                                 <td><span class="status completed">Active</span></td>
                                 <td>
-                                    <button class="btn btn-small btn-primary">Edit</button>
-                                    <button class="btn btn-small btn-danger" disabled>Delete</button>
+                                    <button onclick="window.open('users-detail.html', '_blank')" class="btn btn-small">View</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>#ADM-002</td>
-                                <td>Sarah Smith</td>
-                                <td>sarahs</td>
-                                <td>sarah@eliakitchen.com</td>
-                                <td><span class="badge badge-primary">Admin</span></td>
-                                <td>2024-01-15 10:15</td>
+                                <td>#USR-002</td>
+                                <td>Yosef Alemayehu</td>
+                                <td>jossikalex@gmail.com</td>
+                                <td>Admin</td>
                                 <td><span class="status completed">Active</span></td>
                                 <td>
-                                    <button class="btn btn-small btn-primary">Edit</button>
-                                    <button class="btn btn-small btn-danger">Delete</button>
+                                    <button onclick="window.open('users-detail.html', '_blank')" class="btn btn-small">View</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>#ADM-003</td>
-                                <td>Mike Johnson</td>
-                                <td>mikej</td>
-                                <td>mike@eliakitchen.com</td>
-                                <td><span class="badge badge-success">Editor</span></td>
-                                <td>2024-01-14 16:45</td>
-                                <td><span class="status completed">Active</span></td>
-                                <td>
-                                    <button class="btn btn-small btn-primary">Edit</button>
-                                    <button class="btn btn-small btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>#ADM-004</td>
-                                <td>Emma Wilson</td>
-                                <td>emmaw</td>
-                                <td>emma@eliakitchen.com</td>
-                                <td><span class="badge badge-info">Viewer</span></td>
-                                <td>2024-01-13 09:20</td>
+                                <td>#USR-003</td>
+                                <td>Wuleta Abebe</td>
+                                <td>wuleta@example.com</td>
+                                <td>Customer</td>
                                 <td><span class="status pending">Inactive</span></td>
                                 <td>
-                                    <button class="btn btn-small btn-primary">Edit</button>
-                                    <button class="btn btn-small btn-success">Activate</button>
+                                    <button onclick="window.open('users-detail.html', '_blank')" class="btn btn-small">View</button>
                                 </td>
                             </tr>
                             <tr>
-                                <td>#ADM-005</td>
-                                <td>David Brown</td>
-                                <td>davidb</td>
-                                <td>david@eliakitchen.com</td>
-                                <td><span class="badge badge-warning">Moderator</span></td>
-                                <td>2024-01-12 11:30</td>
+                                <td>#USR-004</td>
+                                <td>Yaikob Tamirat</td>
+                                <td>yaikob@example.com</td>
+                                <td>Customer</td>
                                 <td><span class="status completed">Active</span></td>
                                 <td>
-                                    <button class="btn btn-small btn-primary">Edit</button>
-                                    <button class="btn btn-small btn-danger">Delete</button>
+                                    <button onclick="window.open('users-detail.html', '_blank')" class="btn btn-small">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#USR-005</td>
+                                <td>Natinael Chhufamo</td>
+                                <td>natinael@example.com</td>
+                                <td>Delivery</td>
+                                <td><span class="status completed">Active</span></td>
+                                <td>
+                                    <button onclick="window.open('users-detail.html', '_blank')" class="btn btn-small">View</button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="btn btn-small btn-secondary">Previous</button>
+                    <span style="margin: 0 10px;">Page 1 of 5</span>
+                    <button class="btn btn-small btn-secondary">Next</button>
+                </div>
             </div>
         </div>
     </div>
+    
+    <script>
+        // Ensure sidebar doesn't affect layout
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if sidebar is causing layout issues
+            const sidebar = document.querySelector('.admin-sidebar');
+            const main = document.querySelector('.admin-main');
+            
+            if (sidebar && main) {
+                // Force proper layout
+                sidebar.style.position = 'fixed';
+                sidebar.style.left = '0';
+                sidebar.style.top = '0';
+                sidebar.style.height = '100vh';
+                sidebar.style.width = '250px';
+                sidebar.style.zIndex = '1000';
+                
+                main.style.marginLeft = '250px';
+                main.style.width = 'calc(100% - 250px)';
+            }
+        });
+    </script>
+
+    <!-- Add this to users.html before closing body tag -->
+<script src="../js/admin.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Search functionality
+        const searchInput = document.querySelector('input[placeholder*="Search"]');
+        const filterSelect = document.querySelector('select');
+        const searchBtn = document.querySelector('.btn-primary');
+        
+        if (searchBtn) {
+            searchBtn.addEventListener('click', performSearch);
+            
+            // Search on Enter key
+            if (searchInput) {
+                searchInput.addEventListener('keyup', function(e) {
+                    if (e.key === 'Enter') performSearch();
+                });
+            }
+        }
+        
+        function performSearch() {
+            const searchTerm = searchInput?.value.toLowerCase() || '';
+            const filterValue = filterSelect?.value || 'all';
+            
+            const rows = document.querySelectorAll('.admin-table tbody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                const name = row.cells[1].textContent.toLowerCase();
+                const email = row.cells[2].textContent.toLowerCase();
+                const role = row.cells[3].textContent.toLowerCase();
+                const status = row.cells[4].querySelector('.status').textContent.toLowerCase();
+                
+                const matchesSearch = searchTerm === '' || 
+                    name.includes(searchTerm) || 
+                    email.includes(searchTerm);
+                
+                const matchesFilter = filterValue === 'all' ||
+                    (filterValue === 'active' && status === 'active') ||
+                    (filterValue === 'inactive' && status === 'inactive') ||
+                    (filterValue === 'admin' && role === 'admin') ||
+                    (filterValue === 'customer' && role === 'customer');
+                
+                if (matchesSearch && matchesFilter) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            showToast(`Found ${visibleCount} users`);
+        }
+        
+        // Pagination
+        let currentPage = 1;
+        const itemsPerPage = 5;
+        
+        document.querySelector('.pagination .btn-small:first-child')?.addEventListener('click', function() {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePagination();
+            }
+        });
+        
+        document.querySelector('.pagination .btn-small:last-child')?.addEventListener('click', function() {
+            currentPage++;
+            updatePagination();
+        });
+        
+        function updatePagination() {
+            const rows = document.querySelectorAll('.admin-table tbody tr');
+            const totalPages = Math.ceil(rows.length / itemsPerPage);
+            
+            // Update page display
+            const pageDisplay = document.querySelector('.pagination span');
+            if (pageDisplay) {
+                pageDisplay.textContent = `Page ${currentPage} of ${totalPages}`;
+            }
+            
+            // Show/hide rows based on page
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            
+            rows.forEach((row, index) => {
+                row.style.display = (index >= startIndex && index < endIndex) ? '' : 'none';
+            });
+            
+            // Update button states
+            const prevBtn = document.querySelector('.pagination .btn-small:first-child');
+            const nextBtn = document.querySelector('.pagination .btn-small:last-child');
+            
+            if (prevBtn) prevBtn.disabled = currentPage === 1;
+            if (nextBtn) nextBtn.disabled = currentPage === totalPages;
+        }
+        
+        // Initial pagination setup
+        updatePagination();
+        
+        // View buttons
+        document.querySelectorAll('.btn-small').forEach(button => {
+            if (button.textContent.includes('View')) {
+                button.addEventListener('click', function() {
+                    const userId = this.closest('tr').querySelector('td:first-child').textContent;
+                    const userName = this.closest('tr').querySelector('td:nth-child(2)').textContent;
+                    showToast(`Viewing details for ${userName} (${userId})`);
+                    // The actual navigation happens via onclick attribute
+                });
+            }
+        });
+    });
+</script>
+
 </body>
 </html>

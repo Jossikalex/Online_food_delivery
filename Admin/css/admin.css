@@ -1,27 +1,27 @@
- body {
-     font-family: sans-serif;
-     margin: 0;
-     background-color: #1E1B1A; 
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #1E1B1A;
+    padding: 0px;
 }
 
 header {
-    background-color: #a23333; 
-     padding: 10px 20px;
-     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    background-color: #f6b11a;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav {
-     display: flex;
+    display: flex;
     justify-content: space-between;
-     align-items: center;
+    align-items: center;
 }
-
 
 /* HEADER RIGHT SECTION */
 .admin-header-right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 35px;
 }
 
 /* ICON SECTION */
@@ -49,11 +49,16 @@ nav {
     font-weight: bold;
 }
 
+.profile-icon {
+    font-size: 20px;
+}
+
 /* PROFILE PHOTO */
 .admin-profile {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 3px;
     cursor: pointer;
 }
 
@@ -70,21 +75,17 @@ nav {
     font-size: 15px;
 }
 
-
-
-
-
-
-
-/* TWO COLUMN LAYOUT */
+/* REGISTRATION CONTAINER - FIXED */
 .register-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;  /* 50% 50% */
+    display: flex;
     gap: 30px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .register-box {
+    flex: 1;
+    min-width: 300px;
     background: white;
     padding: 25px 30px;
     border-radius: 12px;
@@ -94,96 +95,95 @@ nav {
 .register-box h2 {
     margin-bottom: 20px;
     font-size: 22px;
+    color: #2f3542;
+    border-bottom: 2px solid #f6b11a;
+    padding-bottom: 10px;
 }
 
-
-
-
-
-
-
-
-
+/* Remove problematic table styles */
+.register-box table {
+    display: none; /* Hide any tables */
+}
 
 .icons {
     display: flex;
 }
 
 .icons button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-  margin-right: 10px; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 10px;
     padding: 5px;
-     color: #888;
-     border-radius: 8px;
-     transition: background-color 0.2s ease;
+    color: #888;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
 }
 
 .icons button:hover {
-  background-color: #eee;
+    background-color: #eee;
 }
 
 .logout-button {
-     background-color: #1e90ff; 
+    background-color: #1e90ff;
     color: white;
-     border: none;
+    border: none;
     padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-   display: flex;
-   align-items: center;
-   gap: 8px;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
 }
 
 .logout-button:hover {
-  background-color: #1570c4; /* Darker shade of blue on hover */
+    background-color: #1570c4;
 }
 
-.code-snippet {
-  background-color: #282a36;
-  border-radius: 8px;
-  margin: 20px;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
- color: #f8f8f2;
+/* Ensure sidebar stays on left */
+.admin-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 100;
 }
 
-.code-snippet-header {
-  color: #f8f8f2;
-  font-size: 14px;
- padding: 5px;
-  border-bottom: 1px solid #44475a;
- margin-bottom: 10px;
+.admin-main {
+    margin-left: 250px;
+    width: calc(100% - 250px);
 }
 
-.code-snippet pre {
- overflow-x: auto; /* Enable horizontal scrolling for long lines */
- padding: 10px;
+/* Ensure form containers don't have table layout */
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.code-snippet code {
- font-family: monospace, monospace;
- font-size: 14px;
- line-height: 1.4;
- white-space: pre; 
- display: block;
-}
-
-.link {
- display: flex;
- align-items: center;
- justify-content: flex-start;
- width: 60px;
- height: 50px;
- border-radius: 16px;
- color: #6b7280;
- text-decoration: none;
- font-weight: 500;
- position: relative;
- overflow: hidden;
- transition: all 0.3s ease;
+/* Fix for mobile */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+    
+    .admin-main {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .register-container {
+        flex-direction: column;
+    }
+    
+    .register-box {
+        width: 100%;
+    }
 }
