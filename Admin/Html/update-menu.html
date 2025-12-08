@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Categories - Admin Panel</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Sidebar Navigation -->
+    <div class="admin-sidebar">
+        <div class="sidebar-header">
+            <img src="../images/logo.png" alt="Logo">
+            <h3>Ella Kitchen Cafe</h3>
+            <p>Admin Panel</p>
+        </div>
+        
+        <nav class="sidebar-menu">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li class="active"><a href="update-menu.html">Update menu</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="Registration.html">Registration</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="../../Customer/Categories.html">View site</a></li>
+                <li><a href="Logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="admin-main">
+        <header class="admin-header">
+            <h1>Update menu</h1>
+            <div class="admin-user">
+                <span>Welcome, Admin</span>
+            </div>
+        </header>
+        
+        <div class="admin-content">
+            <!-- Add New Category Form -->
+            <div class="content-section">
+                <h2>Add New Category</h2>
+                <form class="form-container">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category-name">Category Name</label>
+                            <input type="text" id="category-name" placeholder="e.g., Pizza, Burger, Desserts" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category-image">Image URL</label>
+                            <input type="text" id="category-image" placeholder="../images/category.jpg" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category-desc">Description</label>
+                        <textarea id="category-desc" rows="3" placeholder="Enter category description..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Add Category</button>
+                        <button type="reset" class="btn btn-secondary">Clear</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Categories List -->
+            <div class="content-section">
+                <h2>Existing Categories</h2>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Category Name</th>
+                                <th>Image</th>
+                                <th>Food Items</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#CAT-001</td>
+                                <td>Pizza</td>
+                                <td><img src="../images/pizza.jpg" alt="Pizza" class="table-img"></td>
+                                <td>8 items</td>
+                                <td><span class="status completed">Active</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Edit</button>
+                                    <button class="btn btn-small btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#CAT-002</td>
+                                <td>Burger</td>
+                                <td><img src="../images/burger.jpg" alt="Burger" class="table-img"></td>
+                                <td>6 items</td>
+                                <td><span class="status completed">Active</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Edit</button>
+                                    <button class="btn btn-small btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#CAT-003</td>
+                                <td>Momo</td>
+                                <td><img src="../images/momo.jpg" alt="Momo" class="table-img"></td>
+                                <td>5 items</td>
+                                <td><span class="status completed">Active</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Edit</button>
+                                    <button class="btn btn-small btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#CAT-004</td>
+                                <td>Desserts</td>
+                                <td><img src="../images/dessert.jpg" alt="Dessert" class="table-img"></td>
+                                <td>10 items</td>
+                                <td><span class="status pending">Inactive</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Edit</button>
+                                    <button class="btn btn-small btn-success">Activate</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#CAT-005</td>
+                                <td>Drinks</td>
+                                <td><img src="../images/drinks.jpg" alt="Drinks" class="table-img"></td>
+                                <td>12 items</td>
+                                <td><span class="status completed">Active</span></td>
+                                <td>
+                                    <button class="btn btn-small btn-primary">Edit</button>
+                                    <button class="btn btn-small btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Add image preview
+        document.getElementById('category-image').addEventListener('input', function(e) {
+            const preview = document.getElementById('image-preview');
+            if (!preview) {
+                const previewImg = document.createElement('img');
+                previewImg.id = 'image-preview';
+                previewImg.style.maxWidth = '100px';
+                previewImg.style.marginTop = '10px';
+                previewImg.style.borderRadius = '5px';
+                previewImg.src = e.target.value;
+                e.target.parentNode.appendChild(previewImg);
+            } else {
+                preview.src = e.target.value;
+            }
+        });
+    </script>
+
+    <!-- Add this to update-menu.html before closing body tag -->
+<script src="../js/admin.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add Category Form
+        const addCategoryForm = document.querySelector('.form-container');
+        if (addCategoryForm) {
+            addCategoryForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                if (!validateForm(this)) return;
+                
+                const categoryName = document.getElementById('category-name').value;
+                const imageUrl = document.getElementById('category-image').value;
+                
+                // Simulate API call
+                showToast(`Category "${categoryName}" added successfully!`);
+                this.reset();
+                
+                // Add to table (demo)
+                setTimeout(() => {
+                    const tableBody = document.querySelector('.admin-table tbody');
+                    const newRow = `
+                        <tr>
+                            <td>#CAT-006</td>
+                            <td>${categoryName}</td>
+                            <td><img src="${imageUrl || '../images/default.jpg'}" alt="${categoryName}" class="table-img"></td>
+                            <td>0 items</td>
+                            <td><span class="status completed">Active</span></td>
+                            <td>
+                                <button class="btn btn-small btn-primary edit-btn">Edit</button>
+                                <button class="btn btn-small btn-danger delete-btn">Delete</button>
+                            </td>
+                        </tr>
+                    `;
+                    tableBody.insertAdjacentHTML('afterbegin', newRow);
+                    attachRowEvents(tableBody.firstElementChild);
+                }, 500);
+            });
+        }
+        
+        // Clear button
+        const clearBtn = addCategoryForm?.querySelector('button[type="reset"]');
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                showToast('Form cleared', 'info');
+            });
+        }
+        
+        // Edit and Delete buttons
+        function attachRowEvents(row) {
+            const editBtn = row.querySelector('.edit-btn');
+            const deleteBtn = row.querySelector('.delete-btn');
+            
+            if (editBtn) {
+                editBtn.addEventListener('click', function() {
+                    const categoryName = row.cells[1].textContent;
+                    const newName = prompt('Enter new category name:', categoryName);
+                    if (newName && newName !== categoryName) {
+                        row.cells[1].textContent = newName;
+                        showToast(`Category renamed to "${newName}"`);
+                    }
+                });
+            }
+            
+            if (deleteBtn) {
+                deleteBtn.addEventListener('click', async function() {
+                    const categoryName = row.cells[1].textContent;
+                    const confirmed = await confirmAction(`Are you sure you want to delete "${categoryName}"?`);
+                    if (confirmed) {
+                        row.remove();
+                        showToast(`Category "${categoryName}" deleted`, 'error');
+                    }
+                });
+            }
+        }
+        
+        // Attach events to existing rows
+        document.querySelectorAll('.admin-table tbody tr').forEach(attachRowEvents);
+        
+        // Image preview
+        const imageInput = document.getElementById('category-image');
+        if (imageInput) {
+            imageInput.addEventListener('input', function() {
+                const preview = document.getElementById('image-preview') || document.createElement('img');
+                preview.id = 'image-preview';
+                preview.style.maxWidth = '100px';
+                preview.style.marginTop = '10px';
+                preview.style.borderRadius = '5px';
+                preview.src = this.value;
+                
+                if (!document.getElementById('image-preview')) {
+                    this.parentNode.appendChild(preview);
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

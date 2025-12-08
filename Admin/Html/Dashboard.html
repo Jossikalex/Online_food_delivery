@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Admin Panel</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Sidebar Navigation -->
+    <div class="admin-sidebar">
+        <div class="sidebar-header">
+            <img src="../images/logo.png" alt="Logo">
+            <h3>Ella Kitchen Cafe</h3>
+            <p>Admin Panel</p>
+        </div>
+        
+        <nav class="sidebar-menu">
+            <ul>
+                <li class="active"><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="update-menu.html">Update menu</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="Registration.html">Registration</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="../../Customer/Categories.html">View site</a></li>
+                <li><a href="Logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="admin-main">
+        <header class="admin-header">
+            <h1>Dashboard</h1>
+            <div class="admin-header-right">
+                <!-- Messages Icon -->
+                <div class="header-icon">
+                    <span class="badge">3</span>
+                    <span class="message-icon">🔔</span>
+                </div>
+                <!-- Profile Photo -->
+                <div class="admin-profile">
+                    <span class="profile-icon">👤</span>
+                    <span class="admin-name">Admin</span>
+                </div>
+            </div>
+        </header>
+        
+        <div class="admin-content">
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <p class="stat-number">156</p>
+                    <span class="stat-trend">↑ 12% this month</span>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <p class="stat-number">67,580birr</p>
+                    <span class="stat-trend">↑ 17% this month</span>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Total Foods</h3>
+                    <p class="stat-number">42</p>
+                    <span class="stat-trend">↔ Stable</span>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Total Categories</h3>
+                    <p class="stat-number">6</p>
+                    <span class="stat-trend">↑ 1 new</span>
+                </div>
+            </div>
+            
+            <!-- Recent Orders Table -->
+            <div class="content-section">
+                <h2>Recent Orders</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#ORD-004</td>
+                            <td>Yaikob Tamirat</td>
+                            <td>Burger</td>
+                            <td>350birr</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td>
+                                <button class="btn btn-small">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-003</td>
+                            <td>Wuleta Abebe</td>
+                            <td>Dulet</td>
+                            <td>500birr</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td>
+                                <button class="btn btn-small">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-002</td>
+                            <td>Fekadu Markos</td>
+                            <td>Dulet</td>
+                            <td>500birr</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td>
+                                <button class="btn btn-small">View</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#ORD-001</td>
+                            <td>Natinael Chufamo</td>
+                            <td>Dulet</td>
+                            <td>500birr</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td>
+                                <button class="btn btn-small">View</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this script tag to Dashboard.html before closing body tag -->
+<script src="../js/admin.js"></script>
+<script>
+    // Dashboard specific functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // View order buttons
+        document.querySelectorAll('.btn-small').forEach(button => {
+            if (button.textContent.includes('View')) {
+                button.addEventListener('click', function() {
+                    const orderId = this.closest('tr').querySelector('td:first-child').textContent;
+                    showToast(`Viewing order ${orderId}`);
+                    // In real app, you would redirect or show modal
+                    alert(`View order details for ${orderId}`);
+                });
+            }
+        });
+        
+        // Update statistics periodically
+        setInterval(() => {
+            // Simulate live updates
+            const totalOrders = document.querySelector('.stat-card:first-child .stat-number');
+            if (totalOrders) {
+                const current = parseInt(totalOrders.textContent);
+                totalOrders.textContent = current + Math.floor(Math.random() * 3);
+            }
+        }, 30000);
+    });
+</script>
+
+</body>
+</html>

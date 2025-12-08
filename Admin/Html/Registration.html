@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Admins - Admin Panel</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <style>
+        /* Override any table display */
+        form table, form tr, form td {
+            display: block !important;
+            width: 100% !important;
+        }
+        
+        .registration-wrapper {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="admin-dashboard">
+    <!-- Sidebar Navigation -->
+    <div class="admin-sidebar">
+        <div class="sidebar-header">
+            <img src="../images/logo.png" alt="Logo">
+            <h3>Ella Kitchen Cafe</h3>
+            <p>Admin Panel</p>
+        </div>
+        
+        <nav class="sidebar-menu">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="update-menu.html">Update menu</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li class="active"><a href="Registration.html">Registration</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="../../Customer/Categories.html">View site</a></li>
+                <li><a href="Logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="admin-main">
+        <header class="admin-header">
+            <h1>Register New Staff</h1>
+            <div class="admin-user">
+                <span>Welcome, Admin</span>
+            </div>
+        </header>
+        
+        <div class="admin-content registration-wrapper">
+            <div class="register-container">
+                <!-- LEFT: Admin Form -->
+                <div class="register-box">
+                    <h2>Register Waiter</h2>
+                    <form class="form-container">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="admin-name">Full Name</label>
+                                <input type="text" id="admin-name" placeholder="Enter full name" required>
+                            </div><br> <br>
+                            <div class="form-group">
+                                <label for="admin-username">Username</label>
+                                <input type="text" id="admin-username" placeholder="Choose username" required>
+                            </div> 
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="admin-email">Email Address</label>
+                                <input type="email" id="admin-email" placeholder="jossikalex@gmail.com" required>
+                            </div> <br> <br>
+                            <div class="form-group">
+                                <label for="admin-phone">Phone Number</label>
+                                <input type="tel" id="admin-phone" placeholder="+251 (9) 174-31899">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="admin-password">Password</label>
+                                <input type="password" id="admin-password" placeholder="Create password" required>
+                            </div><br> <br>
+                            <div class="form-group">
+                                <label for="admin-confirm-password">Confirm Password</label>
+                                <input type="password" id="admin-confirm-password" placeholder="Confirm password" required>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Add Waiter</button>
+                            <button type="reset" class="btn btn-secondary">Clear</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- RIGHT: Delivery Person Form -->
+                <div class="register-box">
+                    <h2>Register Delivery Person</h2>
+                    <form class="form-container">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="delivery-name">Full Name</label>
+                                <input type="text" id="delivery-name" placeholder="Enter full name" required>
+                            </div> <br> <br>
+                            <div class="form-group">
+                                <label for="delivery-username">Username</label>
+                                <input type="text" id="delivery-username" placeholder="Choose username" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="delivery-email">Email Address</label>
+                                <input type="email" id="delivery-email" placeholder="delivery@example.com" required>
+                            </div> <br> <br>
+                            <div class="form-group">
+                                <label for="delivery-phone">Phone Number</label>
+                                <input type="tel" id="delivery-phone" placeholder="+251 (9) 123-4567" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="delivery-vehicle">Vehicle Type</label>
+                                <input type="text" id="delivery-vehicle" placeholder="Motorcycle/Car" required>
+                            </div> <br> <br>
+                            <div class="form-group">
+                                <label for="delivery-license">License Number</label>
+                                <input type="text" id="delivery-license" placeholder="License number" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="delivery-password">Password</label>
+                                <input type="password" id="delivery-password" placeholder="Create password" required>
+                            </div> <br> <br>
+                            <div class="form-group">
+                                <label for="delivery-confirm-password">Confirm Password</label>
+                                <input type="password" id="delivery-confirm-password" placeholder="Confirm password" required>
+                            </div>
+                        </div> 
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Add Delivery Person</button>
+                            <button type="reset" class="btn btn-secondary">Clear</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Force forms to display properly
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove any table elements inside forms
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                const tables = form.querySelectorAll('table');
+                tables.forEach(table => {
+                    table.style.display = 'none';
+                    table.remove();
+                });
+            });
+        });
+    </script>
+
+    <!-- Add this to Registration.html before closing body tag -->
+<script src="../js/admin.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Admin registration form
+        const adminForm = document.querySelector('.register-box:first-child form');
+        const deliveryForm = document.querySelector('.register-box:last-child form');
+        
+        if (adminForm) {
+            adminForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateForm(this)) return;
+                
+                const name = document.getElementById('admin-name').value;
+                const role = document.getElementById('admin-role').value;
+                
+                // Simulate registration
+                setTimeout(() => {
+                    showToast(`${role.charAt(0).toUpperCase() + role.slice(1)} "${name}" registered successfully!`);
+                    this.reset();
+                    
+                    // Add notification
+                    adminNotifications.addNotification(`New ${role} registered: ${name}`, 'success');
+                }, 1000);
+            });
+            
+            // Clear button
+            const clearBtn = adminForm.querySelector('button[type="reset"]');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', () => {
+                    showToast('Admin form cleared', 'info');
+                });
+            }
+        }
+        
+        if (deliveryForm) {
+            deliveryForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateForm(this)) return;
+                
+                const name = document.getElementById('delivery-name').value;
+                
+                // Simulate registration
+                setTimeout(() => {
+                    showToast(`Delivery person "${name}" registered successfully!`);
+                    this.reset();
+                    
+                    // Add notification
+                    adminNotifications.addNotification(`New delivery person registered: ${name}`, 'success');
+                }, 1000);
+            });
+            
+            // Clear button
+            const clearBtn = deliveryForm.querySelector('button[type="reset"]');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', () => {
+                    showToast('Delivery form cleared', 'info');
+                });
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #1E1B1A;
+    padding: 0px;
+}
+
+header {
+    background-color: #f6b11a;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* HEADER RIGHT SECTION */
+.admin-header-right {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+/* ICON SECTION */
+.header-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.header-icon img {
+    width: 24px;
+    height: 24px;
+    filter: invert(40%);
+}
+
+/* BADGE NUMBER */
+.badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: #ff3b30;
+    color: white;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.profile-icon {
+    font-size: 20px;
+}
+
+/* PROFILE PHOTO */
+.admin-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.admin-profile img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+.admin-name {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* REGISTRATION CONTAINER - FIXED */
+.register-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.register-box {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.register-box h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #2f3542;
+    border-bottom: 2px solid #f6b11a;
+    padding-bottom: 10px;
+}
+
+/* Remove problematic table styles */
+.register-box table {
+    display: none; /* Hide any tables */
+}
+
+.icons {
+    display: flex;
+}
+
+.icons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 10px;
+    padding: 5px;
+    color: #888;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.icons button:hover {
+    background-color: #eee;
+}
+
+.logout-button {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.logout-button:hover {
+    background-color: #1570c4;
+}
+
+/* Ensure sidebar stays on left */
+.admin-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 100;
+}
+
+.admin-main {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+/* Ensure form containers don't have table layout */
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Fix for mobile */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+    
+    .admin-main {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .register-container {
+        flex-direction: column;
+    }
+    
+    .register-box {
+        width: 100%;
+    }
+}

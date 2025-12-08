@@ -1,0 +1,133 @@
+<!-- admin/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Admin Panel</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Sidebar Navigation -->
+    <div class="admin-sidebar">
+        <div class="sidebar-header">
+            <img src="../images/logo.png" alt="Logo">
+            <h3>Ella Kitchen Cafe</h3>
+            <p>Admin Panel</p>
+        </div>
+        
+        <nav class="sidebar-menu">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="update-menu.html">Update menu</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="Registration.html">Registration</a></li>
+                <li class="active"><a href="report.html">Report</a></li>
+                <li><a href="../../Customer/Categories.html">View site</a></li>
+                <li><a href="Logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="admin-main">
+        <header class="admin-header">
+            <h1>Dashboard</h1>
+            <div class="admin-user">
+                <span>Welcome, Admin</span>
+            </div>
+        </header>
+        
+        <div class="admin-content">
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <p class="stat-number">156</p>
+                    <span class="stat-trend">↑ 12% this month</span>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <p class="stat-number">52,280birr</p>
+                    <span class="stat-trend">↑ 8% this month</span>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Total Foods</h3>
+                    <p class="stat-number">23</p>
+                    <span class="stat-trend">↔ Stable</span>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Total Categories</h3>
+                    <p class="stat-number">6</p>
+                    <span class="stat-trend">↑ 1 new</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this to report.html before closing body tag -->
+<script src="../js/admin.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Simulate live report updates
+        function updateReportData() {
+            const statCards = document.querySelectorAll('.stat-card');
+            
+            if (statCards.length >= 4) {
+                // Total Orders
+                const ordersElement = statCards[0].querySelector('.stat-number');
+                let orders = parseInt(ordersElement.textContent);
+                orders += Math.floor(Math.random() * 5);
+                ordersElement.textContent = orders;
+                
+                // Total Revenue
+                const revenueElement = statCards[1].querySelector('.stat-number');
+                let revenue = parseFloat(revenueElement.textContent.replace('$', '').replace(',', ''));
+                revenue += Math.random() * 100;
+                revenueElement.textContent = `$${revenue.toFixed(2)}`;
+                
+                // Update trends
+                const trends = document.querySelectorAll('.stat-trend');
+                trends.forEach(trend => {
+                    const change = Math.random() > 0.5 ? '↑' : '↓';
+                    const percent = Math.floor(Math.random() * 20) + 1;
+                    trend.textContent = `${change} ${percent}% this hour`;
+                });
+            }
+        }
+        
+        // Update every 30 seconds
+        setInterval(updateReportData, 30000);
+        
+        // Generate report button (if you add one)
+        const generateBtn = document.querySelector('#generate-report');
+        if (generateBtn) {
+            generateBtn.addEventListener('click', function() {
+                showToast('Generating comprehensive report...');
+                setTimeout(() => {
+                    showToast('Report generated successfully!', 'success');
+                    // In real app, this would download a PDF or show detailed report
+                }, 2000);
+            });
+        }
+        
+        // Export buttons
+        document.querySelectorAll('.export-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const format = this.getAttribute('data-format');
+                showToast(`Exporting report as ${format.toUpperCase()}...`);
+                setTimeout(() => {
+                    showToast(`Report exported as ${format.toUpperCase()}`, 'success');
+                }, 1500);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

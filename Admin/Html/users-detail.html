@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Details - Admin Panel</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <style>
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .user-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .card-top {
+            background: linear-gradient(135deg, #dcc426, #8f8a02);
+            padding: 20px;
+            color: white;
+        }
+        
+        .card-top h2 {
+            margin: 0;
+        }
+        
+        .user-id {
+            background: #ffeb00;
+            color: #000;
+            padding: 5px 12px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .info-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .btn-box {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .btn-box button {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body class="admin-dashboard">
+    <div class="admin-sidebar">
+        <div class="sidebar-header">
+            <img src="../images/logo.png" alt="Logo">
+            <h3>Ella Kitchen Cafe</h3>
+            <p>Admin Panel</p>
+        </div>
+        
+        <nav class="sidebar-menu">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="update-menu.html">Update menu</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li class="active"><a href="users.html">Users</a></li>
+                <li><a href="Registration.html">Registration</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="../../Customer/Categories.html">View site</a></li>
+                <li><a href="Logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div class="admin-main">
+        <header class="admin-header">
+            <h1>User Details</h1>
+            <div class="admin-user">
+                <span>Welcome, Admin</span>
+            </div>
+        </header>
+        
+        <div class="admin-content">
+            <div style="margin-bottom: 20px;">
+                <a href="users.html" class="btn btn-secondary">← Back to Users</a>
+            </div>
+            
+            <div class="card-container">
+                <!-- User Card 1 -->
+                <div class="user-card">
+                    <div class="card-top">
+                        <h2>Yosef Alemayehu</h2>
+                        <div class="user-id">ID: ELL0001</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <ul class="info-list">
+                            <li><strong>Username:</strong> @jossikalex</li>
+                            <li><strong>Email:</strong> Jossikalex@gmail.com</li>
+                            <li><strong>Phone:</strong> +251 (9) 174-31899</li>
+                            <li><strong>Address:</strong> Hossaina, Ethiopia</li>
+                            <li><strong>Orders:</strong> 2 orders</li>
+                            <li><strong>Last Login:</strong> Yesterday</li>
+                            <li><strong>Status:</strong> <span class="status completed">Active</span></li>
+                        </ul>
+                        
+                        <div class="btn-box">
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- User Card 2 -->
+                <div class="user-card">
+                    <div class="card-top">
+                        <h2>Fekadu Markos</h2>
+                        <div class="user-id">ID: ELL0002</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <ul class="info-list">
+                            <li><strong>Username:</strong> @fekadu</li>
+                            <li><strong>Email:</strong> fekadu@example.com</li>
+                            <li><strong>Phone:</strong> +251 (9) 123-4567</li>
+                            <li><strong>Address:</strong> Addis Ababa, Ethiopia</li>
+                            <li><strong>Orders:</strong> 5 orders</li>
+                            <li><strong>Last Login:</strong> Today</li>
+                            <li><strong>Status:</strong> <span class="status completed">Active</span></li>
+                        </ul>
+                        
+                        <div class="btn-box">
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
