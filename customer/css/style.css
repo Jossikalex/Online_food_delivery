@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+margin: 0 0;
+padding: 0 0;
+font-family: 'Poppins', sans-serif;
+font-family:  cursive;
+}
+.container{
+width: 80%;
+margin: 0 auto;
+margin-top:50px;
+}
+.display-in-three{
+display: flex;
+flex-direction: row;
+}
+
+.img-responsive{
+width: 100%;
+object-fit: cover;
+}
+.img-curve{
+border-radius: 15px;
+}
+
+.text-right{
+text-align: center;
+margin-top:3px ;
+position: absolute;
+top:-3%;
+right: 2%;
+left: 1%;
+}
+.text-center{
+text-align: center;
+font-size: 35px;
+margin-bottom: 30px;
+    
+}
+.text-left{
+text-align: left;
+}
+.text-white{
+color: white;
+}
+
+.clearfix{
+clear: both;
+float: none;
+}
+
+a{
+color:#d8d6d6;
+text-decoration: none;
+}
+a:hover{
+color: #f6b11a;
+}
+.btn{
+padding: 1%;
+border: none;
+font-size: 1rem;
+border-radius: 5px;
+}
+.btn-primary{
+background-color: #f6b11a;
+color: white;
+cursor: pointer;
+}
+.btn-primary:hover{
+color: white;
+background-color: #926c19;
+}
+h2{
+color: #2f3542;
+font-size: 2rem;
+margin-bottom: 2%;
+}
+h3{
+font-size: 1.5rem;
+}
+.float-container{
+position: relative;
+}
+.float-text{
+position: absolute;
+bottom: 50px;
+left: 40%;
+}
+fieldset{
+border: 1px solid white;
+margin: 5%;
+padding: 3%;
+border-radius: 5px;
+}
+/* CSSS for navbar section */
+.menu{
+line-height: 60px;
+
+}
+.menu ul{
+list-style-type: none;
+}
+.menu ul li{
+font-size: medium;
+display: inline;
+padding: 1%;
+font-weight: bold;  
+}
+/* CSS for Food SEarch Section */
+.food-search{
+background-image: url(../images/bgrw1.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+padding: 8% 5%;
+margin-top: 5%;
+position: relative;
+ 
+}
+/* CSS for Categories */
+.categories{
+padding: 4% 0;
+}
+.box-3{
+width: 28%;
+float: left;
+margin: 2%;
+}
+/* CSS for Food Menu */
+.food-menu{
+background-color: #ececec;
+padding: 4% 0;
+}
+.food-menu-box{
+width: 25%;
+margin: 3%;
+padding: 2% 0; 
+float: left;
+background-color:white;
+border-radius: 20px;
+
+}
+
+.food-menu-img{
+width:100%;
+object-fit: 180px;
+}
+.food-menu-desc{
+background-color: #1e2330;
+color: white;
+padding: 18px;
+border-top-left-radius:50px ;
+border-top-right-radius:10px;
+margin-top: -20px;
+padding-top: 10px;
+float: left;
+border-radius: 15px;
+overflow: hidden;
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+transition: 0.32s;
+
+}
+.food-price{
+font-size: 1.2rem;
+margin: 2% 0;
+}
+.food-detail{
+font-size: 1rem;
+color: #747d8c;
+}
+
+/* for Order Section */
+.order{
+width: 50%;
+margin: 0 auto;
+}
+.input-responsive{
+width: 96%;
+padding: 1%;
+margin-bottom: 3%;
+border: none;
+border-radius: 5px;
+font-size: 1rem;
+}
+.order-label{
+margin-bottom: 1%; 
+font-weight: bold;
+}
+
+/* CSS for Mobile Size or Smaller Screen */
+@media only screen and (max-width:768px){
+.logo{
+width: 80%;
+float: none;
+margin: 1% auto;
+}
+.menu ul{
+text-align: center;
+}
+.btn{
+width: 51%;
+padding: 1%;
+margin-bottom: 3%;
+margin-top: 3%;
+}
+
+.food-search{ 
+padding: 10% 5%;
+margin-top: 8%;
+}
+.categories{
+padding: 20% 0;
+}
+h2{
+margin-bottom: 10%;
+}
+.box-3{
+width: 100%;
+margin: 4% auto;
+}
+.food-menu{
+padding: 20% 0;
+}
+.food-menu-box{
+width: 80%;
+margin-bottom: 5%;
+}
+.order{
+width: 100%;
+}
+
+}
