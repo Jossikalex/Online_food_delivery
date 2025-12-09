@@ -1,0 +1,162 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #f5f7fb;
+  color: #333;
+}
+header{
+    background-color: #e0b90a;
+}
+/* HEADER */
+.header {
+  width: 100%;
+  background: white;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+}
+
+.header-logo {
+  width: 40px;
+}
+
+.brand {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ff6b4a;
+}
+
+/* LAYOUT */
+.layout {
+  display: flex;
+  height: calc(100vh - 70px);
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 250px;
+  background: #1f1f1f;
+  color: white;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.15);
+}
+
+.sidebar-top {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar-logo {
+  width: 70px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+
+.sidebar h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin-top: 15px;
+}
+
+.sidebar li {
+  margin: 12px 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px 14px;
+  color: #ddd;
+  text-decoration: none;
+  border-radius: 6px;
+  background: #2b2b2b;
+  transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+  background: #444;
+  color: #fff;
+}
+
+.sidebar li.active a {
+  background: linear-gradient(45deg, #ff8a58, #ff4f3e);
+  color: white;
+  font-weight: 600;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.content h2 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #444;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #ff8663;
+  color: white;
+  font-size: 0.95rem;
+}
+
+tr:nth-child(even) {
+  background: #fafafa;
+}
+
+tr:hover {
+  background: #ffe2d5;
+}
+
+select {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  outline: none;
+  transition: 0.2s;
+}
+
+select:focus {
+  border-color: #ff6b4a;
+  box-shadow: 0 0 4px rgba(255,107,74,0.5);
+}
