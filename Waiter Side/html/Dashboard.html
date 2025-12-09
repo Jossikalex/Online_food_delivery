@@ -1,0 +1,97 @@
+<!-- admin/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Admin Panel</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body class="admin-dashboard">
+    <!-- Sidebar Navigation -->
+    <div class="admin-sidebar">
+        <div class="logo-wrraper">
+            <img src="../images/logo.png" alt="">
+        </div>
+        <nav class="sidebar-menu">
+            <ul>
+                <li class="active"><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="manage-orders.html">Orders</a></li>
+                <li><a href="../home.html">View Site</a></li>
+
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+        <header class="admin-header">
+            <h1>Dashboard</h1>
+            <div class="admin-user">
+                <span>Welcome, Admin</span>
+            </div>
+        </header>
+
+        <div class="admin-content">
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <p class="stat-number">156</p>
+                    <span class="stat-trend">↑ 12% this month</span>
+                </div>
+            </div>
+
+            <!-- Recent Orders Table -->
+            <div class="content-section">
+                <h2>Recent Orders</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Food Name</th>
+                            <th>Items</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <!-- <th>Actions</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#ORD-001</td>
+                            <td>pizza</td>
+                            <td>2 items</td>
+                            <td>for fast</td>
+                            <td>
+                                <input name="status" type="radio">Ordered <br>
+                                <input name="status" type="radio">cocked <br>
+                                <input name="status" type="radio">Delivered <br>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>#ORD-001</td>
+                            <td>pizza</td>
+                            <td>2 items</td>
+                            <td>for fast</td>
+                            <td>
+                                <input name="status" type="radio">Ordered <br>
+                                <input name="status" type="radio">cocked <br>
+                                <input name="status" type="radio">Delivered <br>
+                            </td>
+
+                        </tr>
+                        <!-- More rows... -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
