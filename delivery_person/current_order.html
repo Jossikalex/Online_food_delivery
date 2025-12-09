@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assigned Order</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <p class="welcomeText">👋 Welcome, Delivery Person</p>
+  </header>
+
+  <!-- Layout -->
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>Ela Kitchen</h3>
+      <img src="image/logo.png" class="logo" alt="Logo">
+      <ul>
+        <li><a id="link1" href="assigned_order.html" onclick="change()">📦 Assigned Order</a></li>
+        <li class="active"><a href="current_order.html">🛒 Current Order</a></li>
+      </ul>
+    </aside>
+
+    <!-- Content -->
+    <main class="content">
+      <h2>Current Orders</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer Name</th>
+            <th>Address</th>
+            <th>Status</th>
+            <th>View Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>O11</td>
+            <td>Aman Yirdaw</td>
+            <td>Sodo</td>
+            <td>
+              <select>
+                <option>Ordered</option>
+                <option>Cooked</option>
+                <option>Finished</option>
+              </select>
+            </td>
+            <td>Gonbora, Hossana</td>
+          </tr>
+          <tr>
+            <td>O11</td>
+            <td>Adis Yirdaw</td>
+            <td>Hossana</td>
+            <td>
+              <select>
+                <option>Ordered</option>
+                <option>Cooked</option>
+                <option>Finished</option>
+              </select>
+            </td>
+            <td>Gonbora, Hossana</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <script>
+    function change() {
+      document.getElementById("link1").style.backgroundColor = "#333";
+    }
+  </script>
+</body>
+</html>
