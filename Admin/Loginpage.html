@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Ella Kitchen Cafe Admin</title>
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <!-- Main Content Container -->
+    <div class="content-container">
+        <!-- Welcome Section -->
+        <div class="welcome-container">
+            <h1 class="welcome-heading">Welcome to Ella Kitchen Cafe<br>Administration Portal</h1>
+            <p class="welcome-subtitle">
+                Access your restaurant management dashboard to monitor operations, update menus, 
+                track orders, and manage customer experiences.
+            </p>
+            <div class="welcome-divider"></div>
+        </div>
+        
+        <!-- Login Button -->
+        <button class="glass-login-btn" id="openLoginBtn">
+            <i class="fas fa-sign-in-alt"></i>
+            Access Admin Dashboard
+        </button>
+    </div>
+    
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-box">
+            <button class="close-modal" id="closeLoginBtn" aria-label="Close login modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="login-header">
+                <h2>Welcome Back</h2>
+                <p>Login to Ella Kitchen Cafe Admin Panel</p>
+            </div>
+            
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+            
+                <button type="submit" class="login-btn" id="submitLoginBtn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Login to Dashboard
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="Javascript/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders - Ella Kitchen Cafe Admin</title>
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="admin-dashboard">
+    <!-- Sidebar Navigation -->
+    <div class="admin-sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="Ella Kitchen Cafe Logo">
+            <h3>Ella Kitchen Cafe</h3>
+            <p>Admin Panel</p>
+        </div>
+        
+        <nav class="sidebar-menu">
+            <ul>
+                <li><a href="Dashboard.html" class="nav-item">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+
+                <li><a href="update-menu.php" class="nav-item">
+                    <i class="fas fa-utensils"></i> Update Menu</a></li>    
+
+                <li class="active"><a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-cart"></i> Orders</a></li>
+
+                <li><a href="users.php" class="nav-item">
+                    <i class="fas fa-users"></i> Users</a></li>
+
+                <li><a href="Registration.php" class="nav-item">
+                    <i class="fas fa-user-plus"></i> Registration</a></li>
+
+                <li><a href="report.html" class="nav-item">
+                    <i class="fas fa-chart-bar"></i> Reports</a></li>  
+
+                <li><a href="#" class="nav-item" onclick="alert('View site feature coming soon')">
+                    <i class="fas fa-external-link-alt"></i> View Site</a></li>  
+                    
+                <li><a href="#" class="nav-item logout-btn" onclick="adminUtils.confirmLogout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout</a></li>  
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="admin-main">
+        <header class="admin-header">
+            <h1>Manage Orders</h1>
+            <div class="admin-header-right">
+                <div class="profile-box">
+                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                    <p class="username">Jossikalex</p>
+                </div>
+            </div>
+        </header>
+        
+        <div class="admin-content">
+            <!-- Order Filters -->
+            <div class="content-section">
+                <div class="filter-section">
+                    <h2>Order Management</h2>
+                    <div class="filter-controls">
+                        <select class="filter-select" id="statusFilter">
+                            <option value="all">All Orders</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <input type="date" class="filter-date" id="dateFilter">
+                        <button class="btn btn-primary" onclick="applyFilters()">
+                            <i class="fas fa-filter"></i> Filter
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetFilters()">
+                            <i class="fas fa-times"></i> Reset
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Orders Summary -->
+                <div style="display: flex; gap: 15px; margin: 20px 0; flex-wrap: wrap;">
+                    <div class="stat-card" style="flex: 1; min-width: 150px;">
+                        <h3>Today's Orders</h3>
+                        <p class="stat-number">8</p>
+                    </div>
+                    <div class="stat-card" style="flex: 1; min-width: 150px;">
+                        <h3>Pending</h3>
+                        <p class="stat-number">2</p>
+                    </div>
+                    <div class="stat-card" style="flex: 1; min-width: 150px;">
+                        <h3>Processing</h3>
+                        <p class="stat-number">1</p>
+                    </div>
+                    <div class="stat-card" style="flex: 1; min-width: 150px;">
+                        <h3>Revenue Today</h3>
+                        <p class="stat-number">4,250 Birr</p>
+                    </div>
+                </div>
+                
+                <!-- Orders Table -->
+                <div class="table-responsive">
+                    <table class="admin-table" id="ordersTable">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Order Date</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-status="completed">
+                                <td>#ORD-1001</td>
+                                <td>
+                                    <strong>Yohannis Abera</strong><br>
+                                    <small>johnabrea@gmail.com</small>
+                                </td>
+                                <td>
+                                    2024-01-15<br>
+                                    <small>14:30</small>
+                                </td>
+                                <td>
+                                    <ul class="order-items">
+                                        <li>Special Chechebisa (x1)</li>
+                                        <li>Chicken Pizza (x1)</li>
+                                    </ul>
+                                </td>
+                                <td>765 Birr</td>
+                                <td>
+                                    <select class="status-select" data-order="1001" data-original="completed">
+                                        <option value="pending">Pending</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="completed" selected>Completed</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-small btn-primary" onclick="viewOrderDetails(1001)">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                    <button class="btn btn-small btn-danger" onclick="deleteOrder(1001)">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr data-status="processing">
+                                <td>#ORD-1002</td>
+                                <td>
+                                    <strong>Sara Tades</strong><br>
+                                    <small>sarahtd@gmail.com</small>
+                                </td>
+                                <td>
+                                    2024-01-15<br>
+                                    <small>12:15</small>
+                                </td>
+                                <td>
+                                    <ul class="order-items">
+                                        <li>Fish Sandwich (x2)</li>
+                                        <li>Teferisho (x1)</li>
+                                    </ul>
+                                </td>
+                                <td>870 Birr</td>
+                                <td>
+                                    <select class="status-select" data-order="1002" data-original="processing">
+                                        <option value="pending">Pending</option>
+                                        <option value="processing" selected>Processing</option>
+                                        <option value="completed">Completed</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-small btn-primary" onclick="viewOrderDetails(1002)">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                    <button class="btn btn-small btn-success" onclick="completeOrder(1002)">
+                                        <i class="fas fa-check"></i> Complete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr data-status="pending">
+                                <td>#ORD-1003</td>
+                                <td>
+                                    <strong>Mintesnot Tariku</strong><br>
+                                    <small>minteblm@gmail.com</small>
+                                </td>
+                                <td>
+                                    2024-01-14<br>
+                                    <small>19:45</small>
+                                </td>
+                                <td>
+                                    <ul class="order-items">
+                                        <li>Chicken Momo (x2)</li>
+                                        <li>Tomato sauce (x1)</li>
+                                    </ul>
+                                </td>
+                                <td>830 Birr</td>
+                                <td>
+                                    <select class="status-select" data-order="1003" data-original="pending">
+                                        <option value="pending" selected>Pending</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="completed">Completed</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-small btn-primary" onclick="viewOrderDetails(1003)">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                    <button class="btn btn-small btn-success" onclick="processOrder(1003)">
+                                        <i class="fas fa-play"></i> Process
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr data-status="cancelled">
+                                <td>#ORD-1004</td>
+                                <td>
+                                    <strong>Meklit Bereket</strong><br>
+                                    <small>makibereket32@gmail.com</small>
+                                </td>
+                                <td>
+                                    2024-01-14<br>
+                                    <small>11:20</small>
+                                </td>
+                                <td>
+                                    <ul class="order-items">
+                                        <li>Ethiopian Shiro (x1)</li>
+                                        <li>Chocolate Cake (x1)</li>
+                                        <li>Mango Juice (x2)</li>
+                                    </ul>
+                                </td>
+                                <td>470 Birr</td>
+                                <td>
+                                    <select class="status-select" data-order="1004" data-original="cancelled">
+                                        <option value="pending">Pending</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="completed">Completed</option>
+                                        <option value="cancelled" selected>Cancelled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-small btn-primary" onclick="viewOrderDetails(1004)">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                    <button class="btn btn-small btn-secondary" onclick="restoreOrder(1004)">
+                                        <i class="fas fa-undo"></i> Restore
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr data-status="completed">
+                                <td>#ORD-1005</td>
+                                <td>
+                                    <strong>Robel Nigatu</strong><br>
+                                    <small>robert@email.com</small>
+                                </td>
+                                <td>
+                                    2024-01-13<br>
+                                    <small>16:10</small>
+                                </td>
+                                <td>
+                                    <ul class="order-items">
+                                        <li>Qwanta firfir (x1)</li>
+                                        <li>Tomato Sauce (x1)</li>
+                                        <li>Spice Juice (x1)</li>
+                                    </ul>
+                                </td>
+                                <td>785 Birr</td>
+                                <td>
+                                    <select class="status-select" data-order="1005" data-original="completed">
+                                        <option value="pending">Pending</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="completed" selected>Completed</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-small btn-primary" onclick="viewOrderDetails(1005)">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                    <button class="btn btn-small btn-danger" onclick="deleteOrder(1005)">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Pagination (if needed) -->
+                <div class="pagination">
+                    <button class="btn btn-small btn-secondary" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <span>Page 1 of 1</span>
+                    <button class="btn btn-small btn-secondary" disabled>
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="Javascript/admin.js"></script>
+    
+    <script>
+    // Orders page specific functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize status select elements
+        document.querySelectorAll('.status-select').forEach(select => {
+            // Store original value
+            select.dataset.original = select.value;
+            
+            // Add change event listener
+            select.addEventListener('change', async function() {
+                const orderId = this.getAttribute('data-order');
+                const newStatus = this.value;
+                const originalStatus = this.dataset.original;
+                
+                const confirmed = await adminUtils.confirmAction(
+                    `Change order #${orderId} status from "${originalStatus}" to "${newStatus}"?`
+                );
+                
+                if (confirmed) {
+                    // Update order status
+                    updateOrderStatus(orderId, newStatus);
+                    this.dataset.original = newStatus;
+                    
+                    // Update row data-status attribute
+                    const row = this.closest('tr');
+                    row.setAttribute('data-status', newStatus);
+                    
+                    adminUtils.showToast(`Order #${orderId} status updated to ${newStatus}`, 'success');
+                } else {
+                    // Revert to original value
+                    this.value = originalStatus;
+                }
+            });
+        });
+        
+        // Set today's date as default filter
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('dateFilter').value = today;
+        
+        // Check for new orders every 30 seconds
+        setInterval(checkForNewOrders, 30000);
+    });
+    
+    /**
+     * Apply filters to orders table
+     */
+    function applyFilters() {
+        const statusFilter = document.getElementById('statusFilter').value;
+        const dateFilter = document.getElementById('dateFilter').value;
+        
+        const rows = document.querySelectorAll('#ordersTable tbody tr');
+        let visibleCount = 0;
+        
+        rows.forEach(row => {
+            const rowStatus = row.getAttribute('data-status');
+            const rowDate = row.querySelector('td:nth-child(3)').textContent.split('\n')[0];
+            
+            let showRow = true;
+            
+            // Apply status filter
+            if (statusFilter !== 'all' && rowStatus !== statusFilter) {
+                showRow = false;
+            }
+            
+            // Apply date filter
+            if (dateFilter && rowDate !== dateFilter) {
+                showRow = false;
+            }
+            
+            // Show/hide row
+            row.style.display = showRow ? '' : 'none';
+            if (showRow) visibleCount++;
+        });
+        
+        adminUtils.showToast(`Showing ${visibleCount} order(s)`, 'info');
+    }
+    
+    /**
+     * Reset all filters
+     */
+    function resetFilters() {
+        document.getElementById('statusFilter').value = 'all';
+        document.getElementById('dateFilter').value = '';
+        
+        // Show all rows
+        document.querySelectorAll('#ordersTable tbody tr').forEach(row => {
+            row.style.display = '';
+        });
+        
+        adminUtils.showToast('Filters reset', 'info');
+    }
+    
+    /**
+     * View order details
+     * @param {number} orderId - Order ID
+     */
+    function viewOrderDetails(orderId) {
+        // In production: Open order details modal or page
+        adminUtils.showToast(`Viewing details for order #${orderId}`, 'info');
+        
+        // Simulated order details
+        const orderDetails = {
+            1001: {
+                customer: "Yohannis Abera",
+                items: ["Special Chechebisa (x1)", "Chicken Pizza (x1)"],
+                total: "765 Birr",
+                status: "Completed",
+                notes: "No special instructions"
+            },
+            1002: {
+                customer: "Sara Tades",
+                items: ["Fish Sandwich (x2)", "Teferisho (x1)"],
+                total: "870 Birr",
+                status: "Processing",
+                notes: "Extra napkins please"
+            }
+        };
+        
+        const details = orderDetails[orderId] || {
+            customer: "Customer",
+            items: ["Item details"],
+            total: "0 Birr",
+            status: "Unknown",
+            notes: "No notes"
+        };
+        
+        Swal.fire({
+            title: `Order #${orderId} Details`,
+            html: `
+                <div style="text-align: left;">
+                    <p><strong>Customer:</strong> ${details.customer}</p>
+                    <p><strong>Items:</strong></p>
+                    <ul>${details.items.map(item => `<li>${item}</li>`).join('')}</ul>
+                    <p><strong>Total:</strong> ${details.total}</p>
+                    <p><strong>Status:</strong> ${details.status}</p>
+                    <p><strong>Notes:</strong> ${details.notes}</p>
+                </div>
+            `,
+            icon: 'info',
+            confirmButtonText: 'Close'
+        });
+    }
+    
+    /**
+     * Update order status
+     * @param {number} orderId - Order ID
+     * @param {string} newStatus - New status
+     */
+    function updateOrderStatus(orderId, newStatus) {
+        // In production: Make AJAX call to update order status in database
+        console.log(`Updating order ${orderId} to ${newStatus}`);
+        
+        // Update the select element
+        const select = document.querySelector(`.status-select[data-order="${orderId}"]`);
+        if (select) {
+            select.value = newStatus;
+        }
+    }
+    
+    /**
+     * Process order (set to processing)
+     * @param {number} orderId - Order ID
+     */
+    function processOrder(orderId) {
+        updateOrderStatus(orderId, 'processing');
+        adminUtils.showToast(`Order #${orderId} is now being processed`, 'success');
+    }
+    
+    /**
+     * Complete order
+     * @param {number} orderId - Order ID
+     */
+    function completeOrder(orderId) {
+        updateOrderStatus(orderId, 'completed');
+        adminUtils.showToast(`Order #${orderId} marked as completed`, 'success');
+    }
+    
+    /**
+     * Delete order
+     * @param {number} orderId - Order ID
+     */
+    async function deleteOrder(orderId) {
+        const confirmed = await adminUtils.confirmAction(
+            `Delete order #${orderId}? This action cannot be undone.`
+        );
+        
+        if (confirmed) {
+            const row = document.querySelector(`tr[data-order="${orderId}"]`) || 
+                       document.querySelector(`tr:has(.status-select[data-order="${orderId}"])`);
+            
+            if (row) {
+                row.remove();
+                adminUtils.showToast(`Order #${orderId} deleted`, 'error');
+                updateOrderSummary();
+            }
+        }
+    }
+    
+    /**
+     * Restore cancelled order
+     * @param {number} orderId - Order ID
+     */
+    function restoreOrder(orderId) {
+        updateOrderStatus(orderId, 'pending');
+        adminUtils.showToast(`Order #${orderId} restored to pending`, 'success');
+    }
+    
+    /**
+     * Update order summary statistics
+     */
+    function updateOrderSummary() {
+        const rows = document.querySelectorAll('#ordersTable tbody tr');
+        const today = new Date().toISOString().split('T')[0];
+        
+        let todayOrders = 0;
+        let pendingOrders = 0;
+        let processingOrders = 0;
+        let totalRevenue = 0;
+        
+        rows.forEach(row => {
+            if (row.style.display !== 'none') {
+                const status = row.getAttribute('data-status');
+                const date = row.querySelector('td:nth-child(3)').textContent.split('\n')[0];
+                const total = parseFloat(row.querySelector('td:nth-child(5)').textContent) || 0;
+                
+                if (date === today) todayOrders++;
+                if (status === 'pending') pendingOrders++;
+                if (status === 'processing') processingOrders++;
+                totalRevenue += total;
+            }
+        });
+        
+        // Update summary cards if they exist
+        const summaryCards = document.querySelectorAll('.stat-card .stat-number');
+        if (summaryCards.length >= 4) {
+            summaryCards[0].textContent = todayOrders;
+            summaryCards[1].textContent = pendingOrders;
+            summaryCards[2].textContent = processingOrders;
+            summaryCards[3].textContent = totalRevenue.toFixed(0) + ' Birr';
+        }
+    }
+    
+    /**
+     * Check for new orders (simulated)
+     */
+    function checkForNewOrders() {
+        if (document.visibilityState === 'visible') {
+            // Simulate occasional new orders
+            if (Math.random() > 0.7) {
+                adminUtils.showToast('New order received!', 'info');
+                // In production: Refresh order list via AJAX
+            }
+        }
+    }
+    
+    // Initial summary update
+    updateOrderSummary();
+    </script>
+</body>
+</html>
