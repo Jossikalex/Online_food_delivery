@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Ella Kitchen Cafe Admin</title>
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="admin-dashboard">
+    <!-- Sidebar Navigation -->
+    <div class="admin-sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="Ella Kitchen Cafe Logo">
+            <h3>Ella Kitchen Cafe</h3>
+            <p>Admin Panel</p>
+        </div>
+        
+        <nav class="sidebar-menu">
+            <ul>
+                <li><a href="Dashboard.html" class="nav-item">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+
+                <li><a href="update-menu.php" class="nav-item">
+                    <i class="fas fa-utensils"></i> Update Menu</a></li>    
+
+                <li><a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-cart"></i> Orders</a></li>
+
+                <li><a href="users.php" class="nav-item">
+                    <i class="fas fa-users"></i> Users</a></li>
+
+                <li><a href="Registration.php" class="nav-item">
+                    <i class="fas fa-user-plus"></i> Registration</a></li>
+
+                <li class="active"><a href="report.html" class="nav-item">
+                    <i class="fas fa-chart-bar"></i> Reports</a></li>  
+
+                <li><a href="#" class="nav-item" onclick="alert('View site feature coming soon')">
+                    <i class="fas fa-external-link-alt"></i> View Site</a></li>  
+                    
+                <li><a href="#" class="nav-item logout-btn" onclick="adminUtils.confirmLogout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout</a></li>  
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="admin-main">
+        <header class="admin-header">
+            <h1>Business Reports</h1>
+            <div class="admin-header-right">
+                <div class="profile-box">
+                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                    <p class="username">Jossikalex</p>
+                </div>
+            </div>
+        </header>
+        
+        <div class="admin-content">
+            <!-- Report Period Selector -->
+            <div class="content-section">
+                <h2><i class="fas fa-calendar-alt"></i> Select Report Period</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reportPeriod">Report Period</label>
+                        <select id="reportPeriod" class="filter-select">
+                            <option value="today">Today</option>
+                            <option value="yesterday">Yesterday</option>
+                            <option value="this_week">This Week</option>
+                            <option value="last_week">Last Week</option>
+                            <option value="this_month" selected>This Month</option>
+                            <option value="last_month">Last Month</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="customDateRange" style="display: none;">
+                        <label>Custom Date Range</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="date" id="startDate" class="filter-date">
+                            <span>to</span>
+                            <input type="date" id="endDate" class="filter-date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" onclick="generateReport()">
+                            <i class="fas fa-chart-line"></i> Generate Report
+                        </button>
+                        <button class="btn btn-secondary" onclick="exportReport()">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <p class="stat-number">156</p>
+                    <span class="stat-trend"><i class="fas fa-arrow-up"></i> 12% vs last month</span>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <p class="stat-number">52,280 Birr</p>
+                    <span class="stat-trend"><i class="fas fa-arrow-up"></i> 8% vs last month</span>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Average Order Value</h3>
+                    <p class="stat-number">335 Birr</p>
+                    <span class="stat-trend"><i class="fas fa-arrow-up"></i> 5% vs last month</span>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Active Menu Items</h3>
+                    <p class="stat-number">23</p>
+                    <span class="stat-trend"><i class="fas fa-minus"></i> No change</span>
+                </div>
+            </div>
+            
+            <!-- Top Performing Items -->
+            <div class="content-section">
+                <h2><i class="fas fa-star"></i> Top Performing Menu Items</h2>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Item Name</th>
+                                <th>Category</th>
+                                <th>Quantity Sold</th>
+                                <th>Revenue</th>
+                                <th>Popularity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Dulet</td>
+                                <td>Traditional</td>
+                                <td>42</td>
+                                <td>21,000 Birr</td>
+                                <td><i class="fas fa-fire" style="color: #ff6b6b;"></i> Very High</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Burger</td>
+                                <td>Fast Food</td>
+                                <td>38</td>
+                                <td>13,300 Birr</td>
+                                <td><i class="fas fa-chart-line" style="color: #4ecdc4;"></i> High</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Pizza</td>
+                                <td>Italian</td>
+                                <td>35</td>
+                                <td>12,250 Birr</td>
+                                <td><i class="fas fa-chart-line" style="color: #4ecdc4;"></i> High</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Chechebsa</td>
+                                <td>Traditional</td>
+                                <td>28</td>
+                                <td>8,400 Birr</td>
+                                <td><i class="fas fa-equals" style="color: #ffd166;"></i> Medium</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Shiro</td>
+                                <td>Traditional</td>
+                                <td>25</td>
+                                <td>6,250 Birr</td>
+                                <td><i class="fas fa-equals" style="color: #ffd166;"></i> Medium</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Customer Insights -->
+            <div class="content-section">
+                <h2><i class="fas fa-users"></i> Customer Insights</h2>
+                <div class="form-row">
+                    <div class="form-group" style="flex: 1;">
+                        <div class="stat-card">
+                            <h3>Repeat Customers</h3>
+                            <p class="stat-number">68%</p>
+                            <span class="stat-trend"><i class="fas fa-arrow-up"></i> 5% increase</span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <div class="stat-card">
+                            <h3>New Customers</h3>
+                            <p class="stat-number">42</p>
+                            <span class="stat-trend"><i class="fas fa-arrow-up"></i> 12% increase</span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <div class="stat-card">
+                            <h3>Average Rating</h3>
+                            <p class="stat-number">4.7/5</p>
+                            <span class="stat-trend"><i class="fas fa-star" style="color: #ffd700;"></i> Excellent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Export Options -->
+            <div class="content-section">
+                <h2><i class="fas fa-download"></i> Export Options</h2>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="exportReport('pdf')">
+                        <i class="fas fa-file-pdf"></i> Export as PDF
+                    </button>
+                    <button class="btn btn-success" onclick="exportReport('excel')">
+                        <i class="fas fa-file-excel"></i> Export as Excel
+                    </button>
+                    <button class="btn btn-secondary" onclick="exportReport('csv')">
+                        <i class="fas fa-file-csv"></i> Export as CSV
+                    </button>
+                    <button class="btn btn-info" onclick="printReport()">
+                        <i class="fas fa-print"></i> Print Report
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="Javascript/admin.js"></script>
+    
+    <script>
+    // Reports page specific functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show/hide custom date range
+        const reportPeriod = document.getElementById('reportPeriod');
+        const customDateRange = document.getElementById('customDateRange');
+        
+        reportPeriod.addEventListener('change', function() {
+            if (this.value === 'custom') {
+                customDateRange.style.display = 'block';
+            } else {
+                customDateRange.style.display = 'none';
+            }
+        });
+        
+        // Set default dates for custom range
+        const today = new Date();
+        const lastMonth = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+        
+        document.getElementById('startDate').value = lastMonth.toISOString().split('T')[0];
+        document.getElementById('endDate').value = today.toISOString().split('T')[0];
+    });
+    
+    /**
+     * Generate report based on selected period
+     */
+    function generateReport() {
+        const period = document.getElementById('reportPeriod').value;
+        let message = 'Generating report';
+        
+        switch(period) {
+            case 'today':
+                message += ' for today';
+                break;
+            case 'yesterday':
+                message += ' for yesterday';
+                break;
+            case 'this_week':
+                message += ' for this week';
+                break;
+            case 'last_week':
+                message += ' for last week';
+                break;
+            case 'this_month':
+                message += ' for this month';
+                break;
+            case 'last_month':
+                message += ' for last month';
+                break;
+            case 'custom':
+                const startDate = document.getElementById('startDate').value;
+                const endDate = document.getElementById('endDate').value;
+                message += ` from ${startDate} to ${endDate}`;
+                break;
+        }
+        
+        adminUtils.showToast(message + '...', 'info');
+        
+        // Simulate report generation
+        setTimeout(() => {
+            adminUtils.showToast('Report generated successfully!', 'success');
+            
+            // In production: Update statistics based on selected period
+            // This would involve an AJAX call to fetch actual data
+        }, 2000);
+    }
+    
+    /**
+     * Export report in specified format
+     * @param {string} format - Export format (pdf, excel, csv)
+     */
+    function exportReport(format = 'pdf') {
+        const period = document.getElementById('reportPeriod').value;
+        let fileName = `EllaKitchen_Report_${period}_${new Date().toISOString().split('T')[0]}`;
+        
+        adminUtils.showToast(`Exporting report as ${format.toUpperCase()}...`, 'info');
+        
+        // Simulate export process
+        setTimeout(() => {
+            adminUtils.showToast(`Report exported as ${format.toUpperCase()}!`, 'success');
+            
+            // In production: Trigger actual file download
+            // This would involve server-side generation and file download
+        }, 1500);
+    }
+    
+    /**
+     * Print the report
+     */
+    function printReport() {
+        adminUtils.showToast('Preparing report for printing...', 'info');
+        
+        setTimeout(() => {
+            window.print();
+        }, 1000);
+    }
+    
+    // Simulate live data updates
+    function updateReportData() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        if (statNumbers.length >= 4) {
+            // Simulate small fluctuations in data
+            const ordersElement = statNumbers[0];
+            let orders = parseInt(ordersElement.textContent) || 0;
+            orders += Math.floor(Math.random() * 2);
+            ordersElement.textContent = orders;
+            
+            const revenueElement = statNumbers[1];
+            let revenue = parseInt(revenueElement.textContent.replace(',', '')) || 0;
+            revenue += Math.floor(Math.random() * 100);
+            revenueElement.textContent = revenue.toLocaleString();
+        }
+    }
+    
+    // Update data every minute
+    setInterval(updateReportData, 60000);
+    </script>
+</body>
+</html>

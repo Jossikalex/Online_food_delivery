@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Ella Kitchen Cafe Admin</title>
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body class="admin-dashboard">
+    <!-- Sidebar Navigation -->
+    <div class="admin-sidebar">
+        <div class="sidebar-header">
+            <img src="images/logo.png" alt="Ella Kitchen Cafe Logo">
+            <h3>Ella Kitchen Cafe</h3>
+            <p>Admin Panel</p>
+        </div>
+        
+        <nav class="sidebar-menu">
+            <ul>
+                <li class="active"><a href="Dashboard.html" class="nav-item">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+
+                <li><a href="update-menu.php" class="nav-item">
+                    <i class="fas fa-utensils"></i> Update Menu</a></li>    
+
+                <li><a href="orders.html" class="nav-item">
+                    <i class="fas fa-shopping-cart"></i> Orders</a></li>
+
+                <li><a href="users.php" class="nav-item">
+                    <i class="fas fa-us ers"></i> Users</a></li>
+
+                <li><a href="Registration.php" class="nav-item">
+                    <i class="fas fa-user-plus"></i> Registration</a></li>
+
+                <li><a href="report.html" class="nav-item">
+                    <i class="fas fa-chart-bar"></i> Reports</a></li>  
+
+                <li><a href="#" class="nav-item" onclick="alert('View site feature coming soon')">
+                    <i class="fas fa-external-link-alt"></i> View Site</a></li>  
+
+                <li><a href="#" class="nav-item logout-btn" onclick="adminUtils.confirmLogout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout</a></li>  
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="admin-main">
+        <header class="admin-header">
+            <h1>Dashboard Overview</h1>
+            <div class="admin-header-right">
+                <div class="profile-box">
+                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                    <p class="username">Jossikalex</p>
+                </div>
+            </div>
+        </header>
+        
+        <div class="admin-content">
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <p class="stat-number">156</p>
+                    <span class="stat-trend"><i class="fas fa-arrow-up"></i> 12% this month</span>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <p class="stat-number">67,580 Birr</p>
+                    <span class="stat-trend"><i class="fas fa-arrow-up"></i> 17% this month</span>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Menu Items</h3>
+                    <p class="stat-number">42</p>
+                    <span class="stat-trend"><i class="fas fa-minus"></i> Stable</span>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Categories</h3>
+                    <p class="stat-number">6</p>
+                    <span class="stat-trend"><i class="fas fa-arrow-up"></i> 1 new</span>
+                </div>
+            </div>
+            
+            <!-- Recent Orders Table -->
+            <div class="content-section">
+                <h2>Recent Orders</h2>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD-004</td>
+                                <td>Yaikob Tamirat</td>
+                                <td>Burger</td>
+                                <td>350 Birr</td>
+                                <td><span class="status pending">Pending</span></td>
+                                <td>
+                                    <button class="btn btn-small" onclick="adminUtils.showToast('Viewing order #ORD-004')">
+                                        View
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-003</td>
+                                <td>Wuleta Abebe</td>
+                                <td>Dulet</td>
+                                <td>500 Birr</td>
+                                <td><span class="status completed">Completed</span></td>
+                                <td>
+                                    <button class="btn btn-small" onclick="adminUtils.showToast('Viewing order #ORD-003')">
+                                        View
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-002</td>
+                                <td>Fekadu Markos</td>
+                                <td>Dulet</td>
+                                <td>500 Birr</td>
+                                <td><span class="status completed">Completed</span></td>
+                                <td>
+                                    <button class="btn btn-small" onclick="adminUtils.showToast('Viewing order #ORD-002')">
+                                        View
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-001</td>
+                                <td>Natinael Chufamo</td>
+                                <td>Dulet</td>
+                                <td>500 Birr</td>
+                                <td><span class="status completed">Completed</span></td>
+                                <td>
+                                    <button class="btn btn-small" onclick="adminUtils.showToast('Viewing order #ORD-001')">
+                                        View
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="text-align: center; margin-top: 15px;">
+                    <a href="orders.html" class="btn btn-primary">
+                        <i class="fas fa-list"></i> View All Orders
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div class="content-section">
+                <h2>Quick Actions</h2>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="update-menu.php" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Menu Item
+                    </a>
+                    <a href="Registration.php" class="btn btn-success">
+                        <i class="fas fa-user-plus"></i> Register Staff
+                    </a>
+                    <a href="report.html" class="btn btn-secondary">
+                        <i class="fas fa-chart-line"></i> Generate Report
+                    </a>
+                    <button class="btn btn-info" onclick="adminUtils.showToast('Refreshing data...')">
+                        <i class="fas fa-sync-alt"></i> Refresh Data
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="Javascript/admin.js"></script>
+    
+    <script>
+    // Dashboard-specific functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Dashboard initialized');
+        
+        // Welcome message for admin
+        const username = sessionStorage.getItem('adminUsername') || 'Admin';
+        setTimeout(() => {
+            adminUtils.showToast(`Welcome back, ${username}!`, 'success');
+        }, 1000);
+        
+        // Simulate live updates
+        function updateLiveStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            if (statNumbers.length > 0) {
+                // Randomly increment orders
+                const ordersElement = statNumbers[0];
+                let orders = parseInt(ordersElement.textContent) || 0;
+                orders += Math.floor(Math.random() * 2);
+                ordersElement.textContent = orders;
+                
+                // Update timestamp
+                const timestamp = document.getElementById('last-updated');
+                if (timestamp) {
+                    timestamp.textContent = new Date().toLocaleTimeString();
+                }
+            }
+        }
+        
+        // Update every 30 seconds
+        setInterval(updateLiveStats, 30000);
+        
+        // Check for new notifications every minute
+        setInterval(() => {
+            if (document.visibilityState === 'visible') {
+                // Simulate checking for new orders
+                const hasNewOrders = Math.random() > 0.7;
+                if (hasNewOrders) {
+                    adminUtils.showToast('New order received!', 'info');
+                }
+            }
+        }, 60000);
+    });
+    </script>
+</body>
+</html>
