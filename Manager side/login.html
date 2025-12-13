@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Login - FoodExpress</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Manager Login</h2>
+            <form id="managerLoginForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+
+        </div>
+    </div>
+    <script>
+        document.getElementById('managerLoginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Redirect to manager dashboard after login
+            window.location.href = 'manager-dashboard.html';
+        });
+    </script>
+</body>
+</html>
