@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard - FoodExpress</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/manager.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="manager-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="images/logo.png" alt="Logo" onerror="this.style.display='none'">
+                <h3>Manager Panel</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a href="manager-dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="manager-application.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Application</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="manager-complaints.html">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>Complaints</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="manager-sales.html">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Sales Report</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="manager-profile.html">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="top-bar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>WELCOME MANAGER</h1>
+            </div>
+
+            <div class="content-area">
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div class="stat-info">
+                            <h3>Total Orders</h3>
+                            <p class="stat-number">1,234</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-dollar-sign"></i>
+                        <div class="stat-info">
+                            <h3>Revenue</h3>
+                            <p class="stat-number">$45,678</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-info">
+                            <h3>Customers</h3>
+                            <p class="stat-number">567</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div class="stat-info">
+                            <h3>Pending Complaints</h3>
+                            <p class="stat-number">12</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-charts">
+                    <div class="chart-card">
+                        <h3>Recent Orders</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD001</td>
+                                    <td>John Doe</td>
+                                    <td>$25.99</td>
+                                    <td><span class="status-badge delivered">Delivered</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD002</td>
+                                    <td>Jane Smith</td>
+                                    <td>$18.50</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD003</td>
+                                    <td>Mike Johnson</td>
+                                    <td>$32.75</td>
+                                    <td><span class="status-badge processing">Processing</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/manager.js"></script>
+</body>
+</html>
