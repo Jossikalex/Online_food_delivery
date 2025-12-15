@@ -1,0 +1,73 @@
+<?php
+$conn = mysqli_connect("localhost","root","","delivery-foods");
+if(!$conn){
+    die("DB Connection Failed");
+}
+
+$search = "";
+if(isset($_GET['search'])){
+    $search = mysqli_real_escape_string($conn, $_GET['search']);
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Search</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+
+<?php include('header.php'); ?>
+
+<section class="food-menu">
+    <div class="container">
+      
+        <?php
+        $sql = "SELECT * FROM foods 
+                WHERE active='yes'
+                AND (title LIKE '%$search%' 
+                OR description LIKE '%$search%')";
+
+        $res = mysqli_query($conn,$sql);
+
+        if(mysqli_num_rows($res) > 0){
+            while($row = mysqli_fetch_assoc($res)){
+        ?>
+            <div class="food-menu-box">
+                <div class="food-menu-img">
+                    <img src="images/<?php echo $row['image_name']; ?>" 
+                         class="img-responsive img-curve">
+                </div>
+
+                <div class="food-menu-desc">
+                    <h4><?php echo $row['title']; ?></h4>
+                    <p class="food-price"><?php echo $row['price']; ?> Birr</p>
+                    <p class="food-detail"><?php echo $row['description']; ?></p>
+                    <a href="order.php?food_id=<?php echo $row['id']; ?>" 
+                       class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+        <?php
+            }
+        } else {
+            echo "<p class='text-center'>No food found.</p>";
+        }
+        ?>
+
+        <div class="clearfix"></div>
+    </div>
+</section>
+
+<?php include('footer.php'); ?>
+
+</body>
+</html>
+
+
