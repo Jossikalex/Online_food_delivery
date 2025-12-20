@@ -167,7 +167,7 @@ function initLoginPage() {
                 
                 // Redirect to dashboard after delay
                 setTimeout(() => {
-                    window.location.href = 'Dashboard.html';
+                    window.location.href = 'Dashboard.php';
                 }, 1000);
             } else {
                 showToast('Invalid credentials', 'error');
@@ -402,7 +402,7 @@ function confirmLogout() {
                     showConfirmButton: false,
                     willClose: () => {
                         // Redirect to login page
-                        window.location.href = 'Loginpage.html';
+                        window.location.href = 'Login.php';
                     }
                 });
             }, 1500);
@@ -584,25 +584,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentPage = window.location.pathname.split('/').pop();
     
     switch(currentPage) {
-        case 'Loginpage.html':
-            initLoginPage();
+        case 'Login.php':
+            initLogin();
             break;
-        case 'orders.html':
-            initOrdersPage();
+        case 'orders.php':
+            initOrders();
             break;
-        case 'Dashboard.html':
+        case 'Dashboard.php':
             initDashboard();
             break;
-        case 'update-menu.php':
+        case 'menu.php':
             // Menu page already has PHP functionality
             break;
-        case 'users.php':
+        case 'customers.php':
             // User management page
             break;
         case 'Registration.php':
             // Registration page
             break;
-        case 'report.html':
+        case 'report.php':
             // Report page
             break;
     }

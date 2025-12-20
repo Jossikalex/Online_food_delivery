@@ -109,13 +109,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <nav class="sidebar-menu">
             <ul>
-                <li><a href="Dashboard.html" class="nav-item">
+                <li><a href="Dashboard.php" class="nav-item">
                     <i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
 
                 <li><a href="update-menu.php" class="nav-item">
                     <i class="fas fa-utensils"></i> Update Menu</a></li>    
 
-                <li><a href="orders.html" class="nav-item">
+                <li><a href="orders.php" class="nav-item">
                     <i class="fas fa-shopping-cart"></i> Orders</a></li>
 
                 <li><a href="users.php" class="nav-item">
@@ -124,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <li class="active"><a href="Registration.php" class="nav-item">
                     <i class="fas fa-user-plus"></i> Registration</a></li>
 
-                <li><a href="report.html" class="nav-item">
+                <li><a href="report.php" class="nav-item">
                     <i class="fas fa-chart-bar"></i> Reports</a></li>  
 
                 <li><a href="#" class="nav-item" onclick="alert('View site feature coming soon')">

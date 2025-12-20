@@ -287,7 +287,13 @@ body::before {
 .admin-dashboard {
     display: flex;
     min-height: 100vh;
-    background:  #FFC87C;
+    
+   background: linear-gradient(
+        to bottom, 
+        #F7B523,           /* Starts with Warm Gold */
+        transparent 90%    /* Fades completely clear by 50% of the width */
+    ); 
+
     padding: 10px;
 }
 
@@ -310,8 +316,8 @@ body::before {
 }
 
 .sidebar-header img {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     margin-bottom: 15px;
     object-fit: contain;
 }
@@ -400,7 +406,7 @@ body::before {
 
 /* Content Area */
 .admin-content {
-    padding: 5px;
+    padding: 15px;
     background: #ECECEC;
     min-height: calc(100vh - 120px);
 }
